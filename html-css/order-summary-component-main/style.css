@@ -1,0 +1,142 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #e0e8ff;
+  background-size: 100%;
+  font-family: "red hat display";
+}
+.desktopbgimg {
+  z-index: -1;
+  position: absolute;
+  top: -11%;
+  width: 100%;
+}
+.mobilebgimg{
+  display: none;
+}
+.card-cointainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: white;
+  max-width: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.imagebox img {
+  width: 100%;
+  height: auto;
+}
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 2rem;
+}
+.order-detail {
+  color: #797f9a;
+  font-size: small;
+  font-weight: 700;
+  margin-top: 0;
+}
+.title {
+  color: #182953;
+  font-weight: 900;
+  margin-top: 0;
+}
+.product-info {
+  display: flex;
+  align-items: center;
+  background-color: #edf1fc66;
+  gap: 15px;
+  border-radius: 10px;
+  padding: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+.plan-detail {
+  text-align: left;
+  margin-right: 4rem;
+}
+.price {
+  margin-top: -0.7rem;
+}
+.validity {
+  color: #252e4a;
+  font-weight: 900;
+  font-size: small;
+  width: 76px;
+}
+.price {
+  color: #7f8399;
+  font-size: small;
+  font-weight: 700;
+}
+.change-link {
+  color: #5440df;
+  font-weight: 700;
+  font-size: small;
+}
+.musicicon img {
+  width: 40px;
+}
+.btn {
+  background-color: #382ae1;
+  border: none;
+  color: white;
+  font-size: small;
+  font-weight: 700;
+  padding: 0.9rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0px 5px 10px #5440df;
+  transition: 0.4s ease-in-out;
+}
+.Cancel-link {
+  color: #727493;
+  text-decoration: none;
+  font-size: small;
+  font-weight: 700;
+}
+.change-link:hover{
+  color: #7968e8;
+}
+.btn:hover{
+  background-color:#7968e8 ;
+  cursor: pointer;
+}
+.Cancel-link:hover{
+  color: #252e4a;
+}
+@media (max-width:600px){
+  .desktopbgimg{
+    display: none;
+  }
+  .mobilebgimg{
+    display: block;
+    z-index: -1;
+    position: absolute;
+    top: -2%;
+    width: 100%;
+  }
+  .imagebox img{
+    margin-bottom: 0;
+  }
+  .card-cointainer{
+    width: 85%;
+  }
+  .title{
+    margin-top: 0;
+  }
+  .order-summary{
+    margin-left: -25px;
+    padding: 3rem;
+  }
+  .order-detail{
+    line-height: 20px;
+    font-weight: 700;
+    font-size: medium;
+  }
+}

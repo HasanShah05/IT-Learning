@@ -1,0 +1,128 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0a0c1b;
+  font-family: "inter", sans-serif;
+}
+.mobileimg {
+  display: none;
+}
+
+.main-cointainer {
+  background-color: #1c1938;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 920px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.imagebox {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.imagebox img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.imagebox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4c0677;
+  opacity: 0.5;
+}
+.title {
+  color: white;
+}
+.title span {
+  color: #a95dd6;
+}
+.coinfo {
+  padding: 3rem;
+  margin-top: -15px;
+}
+.goalpara {
+  width: 320px;
+  font-size: small;
+  line-height: 1.3rem;
+  color: #8f8da7;
+}
+.Stats {
+  display: flex;
+  gap: 50px;
+  margin-top: 4.5rem;
+}
+.no {
+  color: white;
+  font-size: large;
+  font-weight: 700;
+}
+.name {
+  color: #696780;
+  font-variant: small-caps;
+  font-size: x-small;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.1rem;
+}
+@media (max-width: 600px) {
+  .main-cointainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1.5rem;
+    border-radius: 10px;
+  }
+  .imagebox {
+    display: none;
+  }
+  .mobileimg {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .mobileimg img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .mobileimg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4c0677;
+    opacity: 0.5;
+  }
+  .coinfo {
+    margin: -3rem;
+  }
+  .title {
+    text-align: center;
+    font-size: 2.2rem;
+  }
+  .Stats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .goalpara {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 2rem;
+    margin-left: 0.5rem;
+  }
+}

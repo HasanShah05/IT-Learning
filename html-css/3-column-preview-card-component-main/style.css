@@ -1,0 +1,127 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.main-cointainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 900px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.title {
+  font-family: "big shoulders", sans-serif;
+  color: white;
+  font-weight: 500;
+}
+.sedans {
+  background-color: hsl(31, 77%, 52%);
+  padding: 3rem;
+}
+.suvs {
+  background-color: hsl(184, 100%, 22%);
+  padding: 3rem;
+}
+.luxury {
+  background-color: hsl(179, 100%, 13%);
+  padding: 3rem;
+}
+.sedans p {
+  color: #ffcf8c;
+  line-height: 1.5rem;
+  font-family: "lexend deca", sans-serif;
+  font-size: small;
+  font-weight: 400;
+  width: 180px;
+}
+.suvs p {
+  color: #77b3b7;
+  line-height: 1.5rem;
+  font-family: "lexend deca", sans-serif;
+  font-size: small;
+  font-weight: 400;
+  width: 180px;
+}
+.luxury p {
+  color: #a4ceca;
+  line-height: 1.5rem;
+  font-family: "lexend deca", sans-serif;
+  font-size: small;
+  font-weight: 400;
+  width: 190px;
+}
+.sedans .btn {
+  border: none;
+  background-color: white;
+  margin-top: 3rem;
+  padding: 0.9rem;
+  border-radius: 35px;
+  width: 8rem;
+  color: hsl(31, 77%, 52%);
+  font-family: "lexend deca", sans-serif;
+}
+.suvs .btn {
+  border: none;
+  background-color: white;
+  margin-top: 3rem;
+  padding: 0.9rem;
+  border-radius: 35px;
+  width: 8rem;
+  color: hsl(184, 100%, 22%);
+  font-family: "lexend deca", sans-serif;
+}
+.luxury .btn {
+  border: none;
+  background-color: white;
+  margin-top: 3rem;
+  padding: 0.9rem;
+  border-radius: 35px;
+  width: 8rem;
+  color: hsl(179, 100%, 13%);
+  font-family: "lexend deca", sans-serif;
+}
+.btn{
+  transition: .3s ease-in-out;
+}
+.btn:hover{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+@media (max-width: 600px) {
+  .main-cointainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .sedans,
+  .suvs,
+  .luxury {
+    padding: 3rem;
+  }
+  .suvs .btn {
+    margin-top: 1rem;
+  }
+  .sedans .btn {
+    margin-top: 1rem;
+  }
+  .luxury .btn {
+    margin-top: 1rem;
+  }
+  .sedans p {
+    width: 200px;
+  }
+  .suvs p {
+    width: 200px;
+  }
+  .luxury p {
+    width: 200px;
+  }
+}

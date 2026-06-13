@@ -1,0 +1,167 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "raleway", sans-serif;
+  font-size: 14px;
+  background-color: hsl(229, 57%, 11%);
+  min-height: 100vh;
+  background-image: url("./images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 100% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.cointainer {
+  max-width: 1100px;
+  display: flex;
+  gap: 20px;
+}
+.icon-cointainer {
+  width: 200px;
+  background-color: hsl(228, 56%, 26%);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 5px 100px 5px 5px;
+}
+.icon-cointainer img {
+  width: 120px;
+}
+.iconsc {
+  background-color: hsl(229, 57%, 11%);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+.icons img {
+  width: 20px;
+  height: 20px;
+}
+.icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+.storage-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 1.5rem;
+  background-color: hsl(228, 56%, 26%);
+  width: 25rem;
+  position: relative;
+  margin-top: 3rem;
+}
+.storage-info p {
+  align-self: flex-start;
+}
+.progress-bar {
+  width: 100%;
+  height: 15px;
+  border-radius: 10px;
+  background-color: hsl(229, 57%, 11%);
+  display: flex;
+  align-items: center;
+}
+.storagelimit {
+  display: flex;
+  justify-content: space-between;
+}
+.mingb {
+  margin-right: 19rem;
+}
+.usedbox {
+  position: absolute;
+  left: 62%;
+  top: -25%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+.usedbox span {
+  font-weight: 700;
+  font-size: 2rem;
+}
+.usedbox p {
+  color: hsl(229, 7%, 55%);
+  font-variant: small-caps;
+  font-weight: 600;
+  font-size: small;
+}
+.usedbox::after {
+  content: "";
+  position: absolute;
+  top: 90%;
+  left: 90.5%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid white;
+  border-top: 12px solid white;
+  border-bottom: 12px solid transparent;
+}
+.progress {
+  position: relative;
+  width: 70%;
+  height: 10px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    hsl(6, 100%, 80%),
+    hsl(335, 100%, 65%)
+  );
+  margin-left: 0.2rem;
+}
+.circle {
+  position: absolute;
+  left: 96.7%;
+  top: 10%;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+@media (max-width: 600px) {
+  body {
+    background-position: top;
+    background-size: cover;
+    background-size: 100% cover;
+  }
+  .cointainer {
+    flex-direction: column;
+    max-width: 350px;
+    gap: 1px;
+  }
+  .storage-info {
+    width: 250px;
+    margin-top: 1rem;
+    padding-bottom: 3rem;
+  }
+  .storage-info p {
+    font-size: small;
+
+    align-self: center;
+  }
+  .mingb {
+    margin-right: 10rem;
+  }
+  .usedbox::after {
+    display: none;
+  }
+  .usedbox {
+    top: 80%;
+    left: 20%;
+    width: 110px;
+  }
+  .icon-cointainer {
+    width: 230px;
+  }
+}

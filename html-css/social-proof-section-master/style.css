@@ -1,0 +1,154 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "league sparten", sans-serif;
+  background-color: white;
+  font-size: 15px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-cointainer {
+  max-width: 1110px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  margin-bottom: 4rem;
+  gap: 2rem;
+}
+.heading {
+  color: #531d50;
+  font-size: 3rem;
+  font-family: "tasa explorer", sans-serif;
+  font-weight: 700;
+  width: 400px;
+  line-height: 3rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+.description {
+  color: #938891;
+  width: 380px;
+  line-height: 1.4rem;
+  font-weight: 500;
+}
+.rateing {
+  display: grid;
+  gap: 15px;
+  align-items: center;
+  margin-top: 3rem;
+}
+.star-box {
+  display: flex;
+  align-items: center;
+  background-color: #f8aaf63a;
+  padding: 0rem 2rem;
+  border-radius: 10px;
+  width: 21rem;
+}
+.star-box:nth-child(1) {
+  justify-self: flex-start;
+}
+.star-box:nth-child(2) {
+  justify-self: center;
+  margin-left: -4rem;
+}
+.star-box:nth-child(3) {
+  justify-self: flex-end;
+  margin-right: 5rem;
+}
+.stars {
+  margin-right: 1.5rem;
+}
+.source-text {
+  color: #4f294f;
+  font-weight: 700;
+  font-family: "josefin sans", sans-serif;
+}
+.reviews {
+  display: flex;
+  gap: 25px;
+  margin: 2rem;
+  color: white;
+}
+.review {
+  background-color: #511f50;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.reviewprofile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.reviewprofile img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.buyertick {
+  margin-top: -0.8rem;
+  color: #bf5794;
+  font-weight: 500;
+}
+.comment {
+  line-height: 1.4rem;
+}
+.name {
+  font-weight: 700;
+}
+.Irene {
+  position: relative;
+  top: 15px;
+}
+.Anne {
+  position: relative;
+  top: 30px;
+}
+.comment {
+  width: 275px;
+}
+@media (max-width: 600px) {
+  .main-cointainer {
+    max-width: 400px;
+    margin: 3.5rem;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .rateing {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .star-box {
+    flex-direction: column;
+    padding: 1rem;
+    width: 19rem;
+  }
+  .star-box:nth-child(1) {
+    align-self: auto;
+    margin-left: 2rem;
+  }
+  .star-box:nth-child(2) {
+    align-self: auto;
+    margin-right: -4rem;
+  }
+  .star-box:nth-child(3) {
+    align-self: center;
+    margin-right: 2rem;
+  }
+  .description {
+    justify-self: center;
+    width: 300px;
+  }
+}

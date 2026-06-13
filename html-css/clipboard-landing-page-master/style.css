@@ -1,0 +1,232 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 18px;
+  font-family: "bai jamjuree", sans-serif;
+  min-height: 100vh;
+  background-image: url("./images/bg-header-desktop.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow-x: hidden;
+}
+.cointainer {
+  max-width: 90%;
+  margin: 6em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.inroduction {
+  margin-bottom: 5em;
+}
+.inroduction img {
+  align-self: center;
+  width: 6em;
+}
+.inroduction h1 {
+  color: hsl(210, 10%, 33%);
+  font-size: 2.1em;
+}
+.inroduction p {
+  color: hsl(201, 11%, 66%);
+  margin-top: -1em;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 1.5em;
+}
+.iosbtn {
+  background-color: hsl(171, 66%, 44%);
+  border: none;
+  padding: 1em;
+  color: white;
+  border-radius: 20px;
+  width: 190px;
+  box-shadow: 0px 2px 10px hsl(171, 66%, 44%);
+}
+.macbtn {
+  background-color: hsl(233, 100%, 69%);
+  border: none;
+  padding: 1em;
+  color: white;
+  border-radius: 20px;
+  width: 190px;
+  box-shadow: 0px 2px 10px hsl(233, 100%, 69%);
+}
+.keep {
+  margin-bottom: 3em;
+}
+h2 {
+  color: hsl(210, 10%, 33%);
+  font-size: 1.8em;
+}
+p {
+  color: hsl(201, 11%, 66%);
+}
+.mainpoint {
+  display: flex;
+  gap: 100px;
+  margin-bottom: 7em;
+}
+.pointers {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 4em;
+}
+.mainpoint img {
+  margin-left: -20em;
+}
+h3 {
+  color: hsl(210, 10%, 33%);
+  text-align: left;
+}
+.accessing {
+  margin-bottom: 4.5em;
+}
+.workflow {
+  margin-bottom: 3em;
+}
+.usecase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6em;
+}
+.sec h3 {
+  text-align: center;
+}
+.sec {
+  width: 400px;
+}
+.logos {
+  display: flex;
+  gap: 110px;
+  margin-bottom: 4em;
+}
+.appforwidth {
+  width: 700px;
+}
+.appfor p {
+  margin-bottom: 2.5em;
+}
+.appfor {
+  margin-bottom: 8em;
+}
+footer img {
+  width: 70px;
+}
+footer {
+  background-color: hsla(204, 6%, 83%, 0.372);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 2em;
+  margin-bottom: -10em;
+  width: 110%;
+  gap: 50px;
+}
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+.socialicons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-right: 5em;
+}
+.socialicons img {
+  width: 33px;
+}
+.iosbtn:hover {
+  cursor: pointer;
+}
+.macbtn {
+  cursor: pointer;
+}
+.hovereffect:hover {
+  color: hsl(171, 66%, 44%);
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  body {
+    background-image: url("./images/bg-header-mobile.png");
+  }
+  .cointainer {
+    max-width: 80%;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 4em;
+  }
+  .inroduction h1 {
+    font-size: 1.8em;
+    margin-top: 2em;
+  }
+  .inroduction {
+    margin-bottom: -0.5em;
+  }
+  .iosbtn {
+    width: 300px;
+  }
+  .macbtn {
+    width: 300px;
+  }
+  .mainpoint {
+    flex-direction: column;
+    gap: 0;
+  }
+  .mainpoint img {
+    margin-left: -1em;
+    width: 350px;
+  }
+  .pointers {
+    text-align: center;
+  }
+  .pointers p {
+    font-size: 0.85em;
+  }
+  h3 {
+    text-align: center;
+  }
+  .tabletimg img {
+    width: 360px;
+  }
+  .usecase {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .sec {
+    width: 350px;
+  }
+  .logos {
+    flex-direction: column;
+    margin-bottom: 6em;
+  }
+  .appforwidth {
+    width: 340px;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .links {
+    grid-template-columns: 1fr;
+  }
+  .socialicons {
+    margin-left: 4em;
+    gap: 50px;
+  }
+}

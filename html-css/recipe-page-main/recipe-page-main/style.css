@@ -1,0 +1,119 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(331, 39%, 85%);
+  color: #605f5e;
+  font-family: "outfit", sans-serif;
+}
+.cointainer {
+  background-color: white;
+  width: 50%;
+  margin: 85px auto;
+  box-sizing: border-box;
+  border-radius: 30px;
+  padding: 1.5rem;
+}
+.recipe {
+  padding: 1rem;
+}
+.omlette-img {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.omlette-img img {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  padding: 1rem;
+  border-radius: 50px;
+}
+h1 {
+  font-family: "young serif", sans-serif;
+  color: #312f2e;
+}
+h2 {
+  color: hsl(14, 45%, 36%);
+  font-family: "young serif", sans-serif;
+}
+ul {
+  line-height: 30px;
+}
+strong {
+  color: #605d58;
+}
+table td {
+  padding: 1rem;
+}
+tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.331);
+}
+li {
+  padding-left: 0.5rem;
+}
+li::marker {
+  color: hsl(332, 51%, 32%);
+  font-weight: bolder;
+}
+.no {
+  color: hsl(332, 51%, 32%);
+  font-weight: bolder;
+  padding-left: 10rem;
+}
+.prepration h2 {
+  color: hsl(332, 51%, 32%);
+  font-family: sans-serif;
+  font-size: 16px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.prepration {
+  margin: 2rem;
+}
+ol {
+  line-height: 2rem;
+}
+ol li::marker {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+.instructions,
+.nutrition {
+  border-top: 0.5px solid rgba(128, 128, 128, 0.331);
+}
+@media (max-width: 600px) {
+  .cointainer {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  .omlette-img {
+    width: 100%;
+    height: auto;
+  }
+  .omlette-img img {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    border-radius: 0;
+  }
+  h1 {
+    padding: 1rem;
+    margin: 0;
+  }
+  body {
+    font-size: larger;
+  }
+  .prepration h2 {
+    font-size: larger;
+  }
+  ul li {
+    padding-left: 1rem;
+  }
+  h2 {
+    padding-left: 1rem;
+  }
+}
