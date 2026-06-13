@@ -1,0 +1,48 @@
+img {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  float: left;
+}
+.container {
+  position: relative;
+}
+.blackbox {
+  position: relative;
+  border: 3px solid white;
+  z-index: 1;
+  height: 120px;
+  margin: 30px;
+  background-color: black;
+  color: white;
+}
+.greenbox {
+  position: absolute;
+  z-index: 2;
+  border: 3px solid green;
+  top: -1px;
+  height: 80px;
+  left: 200px;
+  background-color: lightgreen;
+}
+.greybox {
+  background-color: lightgrey;
+  position: absolute;
+  z-index: 3;
+  top: -5px;
+  left: 350px;
+  height: 70px;
+}
+.overflow {
+  background-color: tomato;
+  height: 100px;
+  width: 100px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border: 2px dashed burlywood;
+  color: white;
+}
+.pic{
+  float: left;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout</title>
+    <style>
+      
+      header {
+        background-color: grey;
+        text-align: center;
+        padding: 20px;
+        color: whitesmoke;
+      }
+      nav {
+        float: left;
+        background-color: darkgray;
+        width: 30%;
+        padding: 20px;
+        height: 167px;
+      }
+      nav ul {
+        list-style-type: none;
+        padding: 0px;
+      }
+      article {
+        
+        background-color: aquamarine;
+        width: 100%;
+        padding: 20px;
+      }
+      section::after{
+        content: "";
+        display: table;
+        clear: both;
+      }
+      footer{
+        background-color: thistle;
+        padding: 20px;
+        text-align: center;
+      }
+      @media (max-widht:600px) {
+        nav,article{
+          height: auto;
+          width: 100%;
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <header>
+      <h2>CITIES</h2>
+    </header>
+    <section>
+      <nav>
+        <ul>
+          <li><a href="#">London</a></li>
+          <li><a href="#">China</a></li>
+          <li><a href="#">Italy</a></li>
+        </ul>
+      </nav>
+      <article>
+        <h1>London</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam iure
+          quisquam dolorum sapiente dolor iste sit deleniti rerum ducimus
+          molestias consequuntur veniam delectus ad et reprehenderit quia, earum
+          eaque nam?
+        </p>
+      </article>
+    </section>
+    <footer><p>This is the footer</p></footer>
+    </div>
+  </body>
+</html>

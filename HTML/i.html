@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fylo Data Storage Component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gradient: linear-gradient(90deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+            --pale-blue: hsl(243, 100%, 93%);
+            --grayish-blue: hsl(229, 7%, 55%);
+            --dark-blue: hsl(228, 56%, 26%);
+            --very-dark-blue: hsl(229, 57%, 11%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            font-size: 14px;
+            color: var(--pale-blue);
+            background-color: var(--very-dark-blue);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            
+            /* Background image setup */
+            background-image: url('https://i.ibb.co/Xp1d4g0/bg-desktop.png');
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: 100% 50vh;
+        }
+
+        .storage-component {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            align-items: flex-end;
+            max-width: 920px;
+            width: 100%;
+        }
+
+        /* --- Left Card (Logo & Icons) --- */
+        .fylo-card {
+            background-color: var(--dark-blue);
+            padding: 2.5rem;
+            border-radius: 10px 100px 10px 10px;
+        }
+        
+        .fylo-logo {
+            margin-bottom: 2rem;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .icon-box {
+            background-color: var(--very-dark-blue);
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* --- Right Card (Storage Info) --- */
+        .storage-card {
+            background-color: var(--dark-blue);
+            padding: 2.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .storage-text {
+            margin-bottom: 1rem;
+        }
+        
+        .storage-text strong {
+            font-weight: 700;
+        }
+        
+        /* Progress Bar */
+        .progress-bar-container {
+            height: 20px;
+            background-color: hsla(229, 57%, 11%, 0.5);
+            border-radius: 10px;
+            padding: 3px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            width: 81.5%; /* Represents 815 GB used */
+            background-image: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 2px;
+        }
+
+        .progress-handle {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        
+        /* Labels for the progress bar */
+        .storage-labels {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* --- Storage Left Bubble --- */
+        .storage-left-bubble {
+            position: absolute;
+            top: -45px;
+            right: 2.5rem;
+            background-color: white;
+            color: var(--very-dark-blue);
+            padding: 1rem 1.5rem;
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .storage-left-bubble .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .storage-left-bubble .unit {
+            color: var(--grayish-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Triangle for the bubble */
+        .storage-left-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            right: 0;
+            width: auto;
+            height: auto;
+            border-top: 20px solid white;
+            border-left: 20px solid transparent;
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 800px) {
+            body {
+                background-image: url('https://i.ibb.co/hM9b1X2/bg-mobile.png');
+                background-size: cover;
+            }
+            .storage-component {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .storage-left-bubble {
+                top: auto;
+                bottom: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+                border-radius: 10px;
+            }
+            .storage-left-bubble::after {
+                display: none; /* Hide the triangle on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="storage-component">
+        <div class="fylo-card">
+            <div class="fylo-logo">
+                <svg width="135" height="39" xmlns="http://www.w3.org/2000/svg"><path d="M10.602 14.576a3.94 3.94 0 0 1-1.469-2.924c0-2.227 1.832-4.027 4.09-4.027 1.623 0 3.037.942 3.693 2.317l-1.623.7c-.44-.82-1.28-1.372-2.205-1.372-1.403 0-2.553 1.134-2.553 2.518 0 .973.564 1.832 1.372 2.271L10.602 14.576zm-6.574 4.192c.624 1.44 2.038 2.418 3.693 2.418 1.558 0 2.908-.851 3.593-2.182l-1.558-.732c-.44.755-1.215 1.237-2.07 1.237-1.338 0-2.488-1.034-2.488-2.383 0-1.005.629-1.9 1.526-2.27l-1.127-2.653c-1.832.788-3.07 2.62-3.07 4.783zm13.116-2.003c.564 1.306 1.865 2.205 3.398 2.205 1.59 0 2.97- .91 3.593-2.24l-1.59-.766c-.407.788-1.182 1.269-2.035 1.269-1.269 0-2.354-1.002-2.354-2.317s1.085-2.317 2.354-2.317c.853 0 1.628.481 2.035 1.269l1.59-.766c-.623-1.33-2.003-2.24-3.593-2.24-1.533 0-2.834.9-3.398 2.205l-1.201-.564c.788-1.767 2.553-2.908 4.6-2.908 2.553 0 4.699 1.832 4.699 4.225 0 2.394-2.146 4.225-4.699 4.225-2.047 0-3.812-1.141-4.6-2.908l1.201-.564zm15.867-5.228h2.553v-2.383h-2.553v-3.463h-1.932v3.463h-1.733v2.383h1.733v8.665c0 1.628 1.148 2.45 2.585 2.45.853 0 1.526-.205 1.832-.375l-.342-1.693c-.24.068-.58.17-1.018.17-.755 0-1.148-.375-1.148-1.114v-7.766z" fill="#FFF" fill-rule="nonzero"/>M90.873 13.916v1.372h4.567v10.379h2.553V15.288h4.567v-1.372h-11.687zM104.38 25.667h2.553V9.58h-2.553v16.087zM113.11 16.151v-1.114c0-1.201-1.018-2.112-2.45-2.112-1.59 0-2.653.942-2.653 2.553v.068h-2.112v-.068c0-2.686 2.077-4.225 4.765-4.225 2.686 0 4.699 1.693 4.699 4.225v1.659h-2.25v-.564zM110.66 18.73h.068c.853 0 1.526-.547 1.526-1.526v-1.237h-3.137v1.237c0 .979.672 1.526 1.544 1.526zm-2.25 6.937h2.553V17.02h-2.553v8.647zM120.347 18.525c.788.853 1.269 1.932 1.269 3.104 0 2.383-1.9 4.225-4.293 4.225-2.354 0-4.258-1.842-4.258-4.225s1.904-4.225 4.258-4.225c.58 0 1.148.102 1.66.307l.885-1.47c-.718-.44-1.59-.684-2.545-.684-3.364 0-6.09 2.72-6.09 6.09 0 3.364 2.726 6.09 6.09 6.09 3.398 0 6.124-2.726 6.124-6.09 0-1.733-.718-3.33-1.865-4.49l-1.47.85zM135 13.916v1.372h-4.567v10.379h-2.553V15.288h-4.567v-1.372H135z" fill="#FFF" fill-rule="nonzero"/></svg>
+            </div>
+            <div class="icon-group">
+                <div class="icon-box">
+                    <svg width="20" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.432 6.842a.5.5 0 0 0-.432-.242h-2.5v-1.84a2.91 2.91 0 0 0-2.91-2.91H2.91A2.91 2.91 0 0 0 0 4.76v8.48a2.91 2.91 0 0 0 2.91 2.91h13.67a2.91 2.91 0 0 0 2.91-2.91V7.342a.5.5 0 0 0-.058-.242.5.5 0 0 0-.432-.258zm-2.472 0H14.5v-1.34a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v7.48a.5.5 0 0 0 .5.5h13.67a.5.5 0 0 0 .5-.5v-5.64z" fill="#0C122C" fill-rule="nonzero"/></svg>
+                </div>
+                <div class="icon-box">
+                    <svg width="24" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M22.518 3.518A2.91 2.91 0 0 0 20.44.609L.61 10.158a.485.485 0 0 0 .543.823l4.726-1.63L22.518 3.518z" fill="#0C122C" fill-rule="nonzero"/><path d="m5.86 17.518 4.234-4.234-4.726 1.63a.485.485 0 0 0-.543.823L23.37.482a.485.485 0 0 0 .147-.69L22.518.06a2.91 2.91 0 0 0-2.077-.267L5.86 17.518z" fill="#0C122C" fill-rule="nonzero"/></svg>
+                </div>
+                <div class="icon-box">
+                    <svg width="22" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M19.426 6.018H17.82a4.85 4.85 0 0 0-4.74-3.527V0L8.853 4.226l4.226 4.226V5.987a2.474 2.474 0 0 1 2.392 1.95h-1.92a.485.485 0 0 0-.485.485v2.91a.485.485 0 0 0 .485.485h1.92A2.474 2.474 0 0 1 13.08 13.8h-2.148a4.85 4.85 0 0 0-4.74-3.527V7.55L1.966 11.777l4.226 4.226V13.54a2.474 2.474 0 0 1 2.392-1.95h1.92a.485.485 0 0 0 .485-.485v-2.91a.485.485 0 0 0-.485-.485h-1.92a2.474 2.474 0 0 1-2.392-1.95h2.148a4.85 4.85 0 0 0 4.74 3.527v2.466l4.226-4.226-4.226-4.226v2.466z" fill="#0C122C" fill-rule="nonzero"/></svg>
+                </div>
+            </div>
+        </div>
+        
+        <div class="storage-card">
+            <p class="storage-text">You’ve used <strong>815 GB</strong> of your storage</p>
+            
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div class="progress-handle"></div>
+                </div>
+            </div>
+
+            <div class="storage-labels">
+                <span>0 GB</span>
+                <span>1000 GB</span>
+            </div>
+            
+            <div class="storage-left-bubble">
+                <span class="number">185</span>
+                <span class="unit">GB Left</span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+

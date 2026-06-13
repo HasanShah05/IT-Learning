@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=shopping_cart"
+    />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Frontend Mentor | Product preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+  </head>
+  <body
+    class="bg-red-100 flex justify-center items-center min-h-screen text-gray-400"
+  >
+    <div
+      class="cointainer max-w-[600px] flex overflow-hidden rounded-xl bg-white max-sm:flex-col max-sm:m-6"
+    >
+      <div class="productimg">
+        <img src="./images/image-product-desktop.jpg" alt="perfumeimgdesktop"
+        class="desktopimg w-[100%] h-[100%] max-sm:hidden"/ >
+        <img
+          src="./images/image-product-mobile.jpg"
+          alt="mobileperfume"
+          class="mobileimg hidden max-sm:block"
+        />
+      </div>
+
+      <div class="product-info flex flex-col p-6">
+        <p
+          class="product-name m-0 font-[Montserrat] text-xs tracking-[0.2rem] font-semibold"
+        >
+          PERFUME
+        </p>
+        <h2
+          class="product-title text-4xl m-0 mt-4 text-black font-bold font-[Open_sans] w-[200px] max-sm:w-[300px]"
+        >
+          Gabrielle Essence Eau De Parfum
+        </h2>
+        <p class="product-detail font-[montserrat] w-[260px] mt-6">
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
+        <div class="price flex items-center gap-4 mt-6 mb-6">
+          <span class="current-price text-3xl font-[merienda] text-green-900 ">$149.99</span>
+          <span class="previous-price line-through">$169.99</span>
+        </div>
+        <button
+          class="atcbtn bg-green-700 hover:bg-green-900 cursor-pointer border-none w-[100%] p-2.5 text-white rounded-[10px] mt-2.5 font-medium"
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>

@@ -1,0 +1,14 @@
+tmp/
+javascript/chaiaurcode
+# Temporary folder
+tmp/
+
+# macOS
+.DS_Store
+
+# Node.js
+node_modules/
+
+# Environment files
+.env
+*.zip

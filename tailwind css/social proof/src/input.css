@@ -1,0 +1,31 @@
+@import "tailwindcss";
+.stars{
+  display: flex;
+  justify-content: center;
+}
+.star-box{
+  background-color: hsla(300, 92%, 52%, 0.089);
+  border-radius: 5px;
+  color: hsl(300, 43%, 22%);
+}
+.source-text{
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
+.reviewprofile img{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.review{
+  background-color: hsl(300, 43%, 22%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+.stars{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

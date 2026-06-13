@@ -1,0 +1,52 @@
+.divo {
+  background-color: #bbb;
+  border-radius: 5px;
+  margin: 3px;
+}
+.header{
+  background-color: slategray;
+  padding: 20px;
+}
+h1 {
+  text-align: center;
+}
+.elements {
+  background-color: #ddd;
+  border-radius: 5px;
+  margin: 3px;
+}
+input:focus {
+  background-color: lightgreen;
+}
+.inputype {
+  background-color: #ccc;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+input[type="text"],
+input[type="password"],
+select {
+  transition: width 0.4s ease-in-out;
+  border: 3px solid grey;
+  display: inline-block;
+  padding: 12px 10px;
+  margin: 8px 0px;
+  border-radius: 5px;
+  width: 130px;
+}
+input[type="submit"] {
+  background-color: rgb(67, 174, 31);
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: green;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 5px solid lightskyblue;
+  width: 100%;
+}

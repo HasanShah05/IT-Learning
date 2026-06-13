@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>Frontend Mentor | Stats preview card component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+  </head>
+  <body
+    class="bg-[hsl(233,47%,7%)] font-[Lexend_Deca] flex justify-center items-center min-h-screen text-[15px]"
+  >
+    <div
+      class="main-cointainer max-w-[350px] bg-[hsl(244,37%,16%)] rounded-xl overflow-hidden sm:flex sm:max-w-[1110px]"
+    >
+      <div class="mobileimg relative">
+        <img
+          src="./images/image-header-mobile.jpg"
+          alt="cointainer image"
+          class="block sm:hidden"
+        />
+        <div
+          class="absolute top-0 left-0 size-full bg-[hsl(277,64%,61%)] opacity-50"
+        ></div>
+      </div>
+
+      <div class="coinfo text-center p-7 sm:text-left sm:p-16">
+        <h1
+          class="title text-[2rem] leading-8 text-[hsl(0,0%,100%)] sm:w-[350px]"
+        >
+          Get <span class="text-[hsl(277,64%,61%)]">insights</span> that help
+          your business grow.
+        </h1>
+        <p class="goalpara mt-6 text-[hsla(0,0%,100%,0.75)] sm:w-[360px]">
+          Discover the benefits of data analytics and make better decisions
+          regarding revenue, customer experience, and overall efficiency.
+        </p>
+        <section
+          class="Stats flex flex-col gap-4 mt-6 sm:flex-row sm:gap-12 sm:mt-26"
+        >
+          <article>
+            <div class="no text-white text-[1.5rem]">10k+</div>
+            <div class="name text-[hsla(0,0%,100%,0.6)]">COMPANIES</div>
+          </article>
+          <article>
+            <div class="no text-white text-[1.5rem]">314</div>
+            <div class="name text-[hsla(0,0%,100%,0.6)]">TEMPLATES</div>
+          </article>
+          <article>
+            <div class="no text-white text-[1.5rem]">12M+</div>
+            <div class="name text-[hsla(0,0%,100%,0.6)]">QUERIES</div>
+          </article>
+        </section>
+      </div>
+      <div class="imagebox relative">
+        <img
+          src="./images/image-header-desktop.jpg"
+          alt="image of people"
+          class="hidden sm:block"
+        />
+        <div
+          class="absolute top-0 left-0 size-full bg-[hsl(277,64%,61%)] opacity-50"
+        ></div>
+      </div>
+    </div>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>

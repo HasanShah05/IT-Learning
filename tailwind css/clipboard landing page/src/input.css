@@ -1,0 +1,4 @@
+@import "tailwindcss";
+h2{
+  color: hsl(210, 10%, 33%);
+}

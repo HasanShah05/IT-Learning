@@ -1,0 +1,21 @@
+@import "tailwindcss";
+.testimonial{
+  border-radius: 7px;
+  box-shadow: 0px 15px 15px 8px rgba(128, 128, 128, 0.516);
+  padding: 1.5rem;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.profilepic img{
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+}
+h2{
+  font-size: 1.4rem;
+  font-weight:600;
+  line-height: 1.5rem;
+}

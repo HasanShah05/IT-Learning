@@ -1,0 +1,13 @@
+.cointainer{
+  display: grid;
+  background-color: dodgerblue;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  padding: 10px;
+}
+.cointainer > div{
+  background-color: #f1f1f1;
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+}

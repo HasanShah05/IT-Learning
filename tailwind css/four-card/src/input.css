@@ -1,0 +1,19 @@
+@import "tailwindcss";
+.box img{
+  align-self: end;
+  margin-bottom: 1rem;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+.borders{
+  border-radius: 5px;
+}
+.desc{
+  width: 270px;
+  color: grey;
+  font-size: small;
+  margin-bottom: 0.5rem;
+}

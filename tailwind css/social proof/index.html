@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Social proof section</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style> -->
+  </head>
+  <body
+    class="bg-white flex justify-center items-center min-h-screen p-0 m-0 font-[League_Spartan] text-[15px]"
+  >
+    <div class="main-cointainer max-w[350px] m-6 md:max-w-[1200px]">
+      <section class="about md:grid md: grid-cols-2">
+        <div class="social-info text-center w-[310px] md:text-left">
+          <h1
+            class="heading text-fuchsia-900 text-[3rem] font-bold leading-10 mb-4 md:text-left md:w-[350px]"
+          >
+            10,000+ of our users love our products.
+          </h1>
+          <p class="description text-gray-600 font-medium mb-8 md:w-[380px]">
+            We only provide great products combined with excellent customer
+            service. See what our satisfied customers are saying about our
+            services.
+          </p>
+        </div>
+
+        <div
+          class="rateing grid gap-4 justify-center md:relative md:top-[-10%]"
+        >
+          <div
+            class="star-box w-[300px] flex flex-col justify-center gap-2 pt-2 pb-2 md:flex-row items-center md:w-[350px] md:relative md:left-[-10%] md:gap-4 md:pt-0 md:pb-0"
+          >
+            <div class="stars">
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+            </div>
+            <p class="source-text">Rated 5 Stars in Reviews</p>
+          </div>
+          <div
+            class="star-box w-[300px] flex flex-col justify-center gap-2 pt-2 pb-2 md:flex-row items-center md:w-[350px] ,md md:relative md:left-[5%] md:gap-4 md:pt-0 md:pb-0"
+          >
+            <div class="stars">
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+            </div>
+            <p class="source-text">Rated 5 Stars in Report Guru</p>
+          </div>
+          <div
+            class="star-box w-[300px] flex flex-col justify-center gap-2 pt-2 pb-2 md:flex-row items-center md:w-[350px] md:relative md:left-[15%] md:gap-4 md:pt-0 md:pb-0"
+          >
+            <div class="stars">
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+              <img src="./images/icon-star.svg" alt="star" />
+            </div>
+            <p class="source-text">Rated 5 Stars in BestTech</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews flex flex-col gap-6 md:flex-row md:mt-8">
+        <div class="review Colton mt-4 md:mt-0">
+          <div class="reviewprofile flex items-center gap-5">
+            <img src="./images/image-colton.jpg" alt="colton profile pic" />
+            <div>
+              <p class="name font-medium">Colton Smith</p>
+              <p class="buyertick -mt-1 text-fuchsia-500">Verified Buyer</p>
+            </div>
+          </div>
+          <p class="comment mt-4 w-[240px] md:w-[260px]">
+            "We needed the same printed design as the one we had ordered a week
+            prior. Not only did they find the original order, but we also
+            received it in time. Excellent!"
+          </p>
+        </div>
+        <div class="review Irene md:relative md:top-3">
+          <div class="reviewprofile flex items-center gap-5">
+            <img src="./images/image-irene.jpg" alt="ierene profile pic" />
+            <div>
+              <p class="name font-medium">Irene Roberts</p>
+              <p class="buyertick -mt-1 text-fuchsia-500">Verified Buyer</p>
+            </div>
+          </div>
+          <p class="comment mt-4 w-[240px] md:w-[255px]">
+            "Customer service is always excellent and very quick turn around.
+            Completely delighted with the simplicity of the purchase and the
+            speed of delivery."
+          </p>
+        </div>
+        <div class="review Anne md:relative md:top-6">
+          <div class="reviewprofile flex items-center gap-5">
+            <img src="./images/image-anne.jpg" alt="anne profile pic" />
+            <div>
+              <p class="name font-medium">Anne Wallace</p>
+              <p class="buyertick -mt-1 text-fuchsia-500">Verified Buyer</p>
+            </div>
+          </div>
+          <p class="comment mt-4 w-[240px] md:w-[255px]">
+            Put an order with this company and can only praise them for the very
+            high standard. Will definitely use them again and recommend them to
+            everyone!"
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>

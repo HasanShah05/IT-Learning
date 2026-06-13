@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic</title>
+    <link rel="icon" type="image/x-icon" href="/Assets/w3img.webp" />
+    <style>
+      h1 {
+        text-align: center;
+      }
+      table,
+      th,
+      td {
+        border: 3px inset royalblue;
+      }
+      td,
+      th {
+        border-color: aqua;
+        padding: 5px;
+      }
+      .fdiv {
+        background-color: navajowhite;
+      }
+      .sdiv {
+        background-color: pink;
+      }
+      .tdiv {
+        background-color: thistle;
+      }
+      .mydiv {
+        display: flex;
+        overflow: auto;
+      }
+      /* .mydiv div {
+        width: 33%;
+        float: left;
+      } */
+    </style>
+  </head>
+  <body style="background-color: powderblue">
+    <p title="a new paragraph">Following are the headings in html</p>
+    <h1>Html Basic Elelments and Attributes</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>heading 6</h6>
+    <a href="https://www.w3schools.com"
+      ><img src="/Assets/w3img.webp" alt="Image" width="55px"
+    /></a>
+    <p style="background-color: brown; color: whitesmoke">
+      This is a normal paragraph
+    </p>
+    <pre style="font-family: Times New Roman">
+        This paragraph can    cointain   spce
+      and line break
+    </pre>
+    <hr />
+    <h1>Txt formatting</h1>
+    <b>Thsi is a bold text </b><br />
+    <i>italic text</i><br />
+    <mark>highlet text </mark><br />
+    H <sub>2</sub>O <br />
+    <small>This is a small text</small><br />
+    <blockquote cite="https://en.wikipedia.org/wiki/Computer">
+      A computer is a machine that can be programmed to automatically carry out
+      sequences of arithmetic or logical operations (computation). Modern
+      digital electronic computers can perform generic sets of operations known
+      as programs, which enable computers to perform a wide range of tasks. The
+      term computer system may refer to a nominally complete computer that
+      includes the hardware, operating system, software, and peripheral
+      equipment needed and used for full operation; or to a group of computers
+      that are linked and function together, such as a computer network or
+      computer cluster.
+    </blockquote>
+    <p>this is a <q>computer</q>of lenovo</p>
+    <abbr title="Hyper Text Markup Lasnguage">HTML</abbr>
+    <address>
+      Author: Hasan Shah <br />
+      Email at: shahhasanhanif@gmail.com
+    </address>
+    <bdo dir="rtl">this is wrong line</bdo>
+    <p style="background-color: #a0a0a0">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam animi
+      nihil aut xpedita earum atque sunt magni.
+    </p>
+    <a href="/Assets/w3img.webp">image</a><br />
+    <a href="mailto:000shahahsan@gmail.com">send email</a>
+    <a
+      href="www.google.com"
+      title="goes to google"
+      target="_self"
+      style="color: red"
+      >GOOGLE</a
+    ><br />
+    <a href="second.html">Next Page</a>
+    <hr />
+    <table style="width: 100%; text-align: center; border-spacing: 5px">
+      <colgroup>
+        <col span="2" style="background-color: brown" />
+      </colgroup>
+      <tr style="height: 45px">
+        <th colspan="2">Name</th>
+        <th>course</th>
+      </tr>
+      <tr>
+        <td>Hasan</td>
+        <td>Shah</td>
+        <td>BSC.IT</td>
+      </tr>
+      <tr>
+        <td>Abdul Hannan</td>
+        <td>Mansoor</td>
+        <td>BSC.IT</td>
+      </tr>
+    </table>
+    <table style="text-align: center">
+      <tr>
+        <th rowspan="2">Name</th>
+        <td>hasan</td>
+        <td>Abdul Hannan</td>
+      </tr>
+      <tr>
+        <td>Shah</td>
+        <td>Mansoor</td>
+      </tr>
+    </table>
+    <ul style="list-style-type: circle">
+      <li>keyboard</li>
+      <li>mouse</li>
+      <li>laptop</li>
+    </ul>
+    <ol type="I" start="20">
+      <li>keyboard</li>
+      <li>mouse</li>
+      <li>laptop</li>
+    </ol>
+    <ol>
+      <li>Coffee</li>
+      <li>
+        Tea
+        <ol>
+          <li>Black tea</li>
+          <li>Green tea</li>
+        </ol>
+      </li>
+      <li>Milk</li>
+    </ol>
+    <div class="mydiv">
+      <div class="fdiv">
+        <h2>London</h2>
+        <p>London is the capital city of England.</p>
+        <p>London has over 9 million inhabitants.</p>
+      </div>
+
+      <div class="sdiv">
+        <h2>Oslo</h2>
+        <p>Oslo is the capital city of Norway.</p>
+        <p>Oslo has over 700,000 inhabitants.</p>
+      </div>
+
+      <div class="tdiv">
+        <h2>Rome</h2>
+        <p>Rome is the capital city of Italy.</p>
+        <p>Rome has over 4 million inhabitants.</p>
+      </div>
+    </div>
+    <iframe
+      src="second.html"
+      frameborder="0"
+      style="border: saddlebrown; height: 253px; width: 100%"
+      name="hello"
+    ></iframe>
+    <a href="https://www.google.co.in/" target="hello">go to google</a>
+    <video height="320px" width="400px" autoplay>
+      <source src="/Assets/videoplayback.webm" type="video/webm">
+    </video>
+    <audio controls>
+      <source src="/Assets/METAMORPHOSIS.mp3" type="audio/mp3">
+    </audio>
+  </body>
+</html>

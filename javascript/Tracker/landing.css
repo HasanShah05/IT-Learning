@@ -1,0 +1,41 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Comic Neue", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #011852f3;
+    width: 98%;
+    height: 98%;
+}
+.links{
+    margin-top: 10rem;
+    display: flex;
+    gap: 20rem;
+}
+button{
+    width: 9rem;
+    height: 3rem;
+    font-size: 1rem;
+    color: white;
+    box-shadow: 8px 8px 0px black;
+}
+button:hover{
+    cursor: pointer;
+}
+.html{
+    background-color: #d00000;
+}
+.js{
+    background-color: #0399c6;
+}

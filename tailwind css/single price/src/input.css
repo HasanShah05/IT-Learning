@@ -1,0 +1,4 @@
+@import "tailwindcss";
+.price-detail,.reason,.head{
+  padding: 1rem 2rem;
+}

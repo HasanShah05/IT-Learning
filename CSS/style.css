@@ -1,0 +1,297 @@
+body {
+  /* background-color: #352323;
+  color: #c47623; 
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+  font-family: "sofia", sans-serif;
+}
+.practice1 {
+  background-color: #aaa;
+  color: black;
+}
+h1 {
+  text-align: center;
+  position: sticky;
+  top: 0;
+}
+p {
+  font-size: 20px;
+  font-family: "verdana";
+  /* border-bottom:3px solid black;
+  border-radius: 6px;
+  border-top: 3px solid black; */
+}
+.bottom {
+  border: 3px solid #bbb;
+  border-bottom: 4px solid #ccc;
+}
+.para {
+  background-image: url("/HTML/Assets/scenery.jpg");
+  max-width: 400px;
+  color: white;
+  top: 0;
+}
+.para::first-line {
+  color: beige;
+  font-style: italic;
+}
+.para::first-letter {
+  font-size: large;
+  color: blue;
+  font-size: xx-large;
+}
+.border {
+  border-left: 6px solid #ddd;
+}
+.width {
+  border-style: dotted;
+  border-width: 2px 4px 6px 8px;
+  border-color: #eee;
+}
+.mrgins {
+  width: 300px;
+  margin: auto;
+  border: 3px solid lightskyblue;
+  outline-style: dashed;
+  position: relative;
+  left: 30px;
+}
+.widths {
+  background-color: aquamarine;
+  width: 50%;
+  height: 75px;
+}
+p.lorem {
+  background-color: lightblue;
+  padding: 5px;
+  margin: 10px;
+  border: 4px inset lightcoral;
+  text-align: justify;
+}
+p.small {
+  line-height: 0.8;
+  text-transform: capitalize;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  word-spacing: -5px;
+}
+p.big {
+  line-height: 1.9;
+  text-transform: lowercase;
+  word-spacing: 10px;
+}
+.shade {
+  text-shadow: 5px 5px 5px darkblue;
+}
+p.styling {
+  font-weight: lighter;
+  font-style: italic;
+  font-variant: small-caps;
+}
+.link1 {
+  background-color: lightcoral;
+  color: aquamarine;
+  text-decoration: none;
+  padding: 10px 15px;
+  text-align: center;
+  margin: auto;
+  max-width: 400px;
+}
+.link1:hover {
+  background-color: white;
+  animation-fill-mode: backwards;
+  color: black;
+}
+.order {
+  list-style-type: lower-alpha;
+  background-color: salmon;
+  padding: 15px;
+}
+.order li {
+  background-color: mistyrose;
+  color: darkred;
+  padding: 10px;
+  margin: 5px;
+}
+.unorder {
+  /* list-style-image: url('/HTML/Assets/list.jpeg'); */
+  list-style: square inside;
+}
+.unorder li {
+  display: inline;
+}
+table,
+th,
+td {
+  padding: 5px;
+  border-collapse: separate;
+  border-spacing: 3px;
+  text-align: center;
+  width: 30px;
+  vertical-align: bottom;
+}
+td,
+th {
+  vertical-align: bottom;
+  border-bottom: 3px solid green;
+}
+tr:hover {
+  background-color: lightgreen;
+}
+th {
+  background-color: green;
+  color: whitesmoke;
+}
+.float {
+  float: left;
+}
+.div1 {
+  border: 3px solid lightcoral;
+  float: left;
+}
+.div2 {
+  border: 3px solid lightgreen;
+}
+.div3 {
+  border: 3px solid lightgreen;
+  float: left;
+}
+.div4 {
+  border: 3px solid lightcoral;
+  clear: left;
+}
+.div5 {
+  border: 3px solid lawngreen;
+  padding: 5px;
+  overflow: auto;
+}
+.listimg1 {
+  float: right;
+}
+.box {
+  float: left;
+  padding: 50px;
+  width: 33.33px;
+  margin: 10px;
+}
+.nav {
+  background-color: lightseagreen;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.nav li {
+  display: inline-block;
+  padding: 15px;
+}
+.nav li:hover {
+  background-color: lightpink;
+  cursor: pointer;
+}
+.nav li:active {
+  background-color: black;
+  color: whitesmoke;
+}
+a {
+  text-decoration: none;
+}
+#center {
+  background-color: yellowgreen;
+  border: 5px dotted rosybrown;
+  width: 50%;
+  text-align: center;
+  border-radius: 10px;
+  margin: auto;
+}
+.w3 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8%;
+  display: block;
+}
+#center1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid green;
+  height: 200px;
+}
+.p1 {
+  background-color: black;
+  color: yellow;
+  display: none;
+}
+span.hovertip:hover .p1 {
+  display: block;
+}
+q:lang(waah) {
+  quotes: "/" "/";
+}
+::selection {
+  background-color: black;
+  color: white;
+}
+.images1 {
+  opacity: 0.5;
+}
+.images1:hover {
+  opacity: 1;
+}
+.backgroundop {
+  background: url("/HTML/Assets/img_lights.jpg");
+  border: 3px solid lightskyblue;
+  border-radius: 30px;
+}
+.transbox {
+  background-color: white;
+  opacity: 0.5;
+  margin: 30px;
+  border: 3px solid black;
+  border-radius: 100px;
+}
+.transbox {
+  margin: 5%;
+  color: black;
+  text-indent: 5px;
+  text-align: center;
+}
+li.dropdown {
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  display: block;
+  text-decoration: none;
+  padding: 12px 16px;
+  text-align: center;
+}
+.dropdown-content a:hover {
+  background-color: #ccc;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.gallery {
+  margin: 5px;
+  float: left;
+  border: 2px solid #ccc;
+  width: 180px;
+}
+.gallery img {
+  width: 100%;
+  height: auto;
+}
+.gallery:hover {
+  border: 3px solid black;
+}
