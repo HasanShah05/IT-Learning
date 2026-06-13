@@ -1,0 +1,57 @@
+.total-sales-page {
+  animation: pageIn var(--ease-slow) both;
+}
+
+.total-sales-page h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.total-sales-page p {
+  margin-top: 4px;
+  margin-bottom: 28px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sales-chart-wrapper {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.sales-chart-wrapper > * {
+  min-width: 520px;
+}
+
+@media (max-width: 768px) {
+  .total-sales-page h2 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .total-sales-page h2 {
+    font-size: 22px;
+  }
+
+  .total-sales-page p {
+    font-size: 13px;
+    margin-bottom: 22px;
+  }
+
+  .sales-chart-wrapper {
+    padding: 14px;
+    border-radius: var(--radius-md);
+  }
+}

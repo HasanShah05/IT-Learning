@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project 1: Marksheet Generator - Wireframe</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #f1f3f5; color: #212529; padding: 24px; }
+
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .subtitle { color: #868e96; margin-bottom: 32px; font-size: 15px; }
+
+  .screen { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .screen-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .screen-number { background: #228be6; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .screen h2 { font-size: 20px; }
+  .screen-desc { color: #868e96; font-size: 14px; margin-bottom: 20px; margin-left: 40px; }
+
+  .layout { display: flex; gap: 24px; flex-wrap: wrap; }
+  .panel { flex: 1; min-width: 300px; }
+  .panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #495057; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #495057; }
+  .form-group .hint { font-size: 12px; color: #adb5bd; margin-bottom: 4px; }
+  .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #dee2e6; border-radius: 6px; font-size: 14px; background: #f8f9fa; }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: #228be6; background: #fff; }
+
+  .form-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .form-row .form-group { flex: 1; min-width: 120px; }
+
+  .btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .btn-primary { background: #228be6; color: #fff; }
+  .btn-danger { background: #fa5252; color: #fff; }
+  .btn-success { background: #40c057; color: #fff; }
+  .btn-gray { background: #e9ecef; color: #495057; }
+  .btn-group { display: flex; gap: 8px; margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; background: #f8f9fa; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057; }
+  th.center, td.center { text-align: center; }
+  th.right, td.right { text-align: right; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f1f3f5; }
+  .actions { display: flex; gap: 6px; }
+  .btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 4px; }
+
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge-green { background: #d3f9d8; color: #2b8a3e; }
+  .badge-red { background: #ffe3e3; color: #c92a2a; }
+  .badge-blue { background: #d0ebff; color: #1864ab; }
+  .badge-orange { background: #fff4e6; color: #e67700; }
+  .badge-purple { background: #f3d9fa; color: #862e9c; }
+
+  .report-card { border: 2px solid #212529; padding: 28px; border-radius: 8px; background: #fff; }
+  .report-title { text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .report-subtitle { text-align: center; color: #868e96; margin-bottom: 20px; font-size: 14px; }
+  .report-info { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 20px; font-size: 14px; }
+  .report-info span { color: #868e96; }
+  .report-summary { display: flex; gap: 20px; justify-content: flex-end; margin-top: 16px; font-size: 14px; }
+  .report-summary .item { text-align: center; }
+  .report-summary .value { font-size: 22px; font-weight: 700; }
+  .report-summary .label { color: #868e96; font-size: 12px; }
+  .pass { color: #40c057; font-weight: 700; }
+  .fail { color: #fa5252; font-weight: 700; }
+
+  .nav-mockup { display: flex; gap: 0; margin-bottom: 28px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .nav-item { padding: 12px 24px; font-size: 14px; font-weight: 600; color: #868e96; border-bottom: 3px solid transparent; }
+  .nav-item.active { color: #228be6; border-bottom-color: #228be6; background: #e7f5ff; }
+
+  .divider { height: 1px; background: #e9ecef; margin: 20px 0; }
+
+  .marks-grid { width: 100%; }
+  .marks-grid th, .marks-grid td { padding: 8px 10px; }
+  .marks-grid input[type="number"] { width: 70px; padding: 8px; border: 1px solid #dee2e6; border-radius: 6px; text-align: center; font-size: 14px; }
+
+  .exam-tabs { display: flex; gap: 0; margin-bottom: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #228be6; }
+  .exam-tab { padding: 10px 20px; font-size: 14px; font-weight: 600; color: #228be6; background: #fff; cursor: pointer; flex: 1; text-align: center; border-right: 1px solid #d0ebff; }
+  .exam-tab:last-child { border-right: none; }
+  .exam-tab.active { background: #228be6; color: #fff; }
+
+  .config-section { background: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+  .config-section h3 { margin-bottom: 12px; }
+
+  .grade-table { font-size: 13px; }
+  .grade-table td { padding: 6px 12px; }
+  .grade-table .grade { font-weight: 700; }
+
+  .consol-row-highlight { background: #e7f5ff !important; font-weight: 600; }
+  .consol-row-sub { color: #868e96; font-size: 13px; }
+
+  .info-box { background: #e7f5ff; border: 1px solid #a5d8ff; border-radius: 8px; padding: 14px 18px; font-size: 14px; color: #1864ab; margin-bottom: 20px; }
+  .info-box strong { color: #1864ab; }
+
+  .localStorage-hint { background: #fff3bf; border: 1px solid #ffd43b; border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #e67700; margin-top: 12px; }
+  .localStorage-hint code { background: #fff9db; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 12px; }
+
+  @media print { body { background: #fff; padding: 0; } .screen { box-shadow: none; break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>Project 1: Marksheet Generator</h1>
+<p class="subtitle">A school manages students, enters marks for 4 exam types, and generates marksheets with grades</p>
+
+<div class="info-box">
+  <strong>Project Overview:</strong> This app has 4 types of exams — Unit 1 Test (max 30), Unit 2 Test (max 30), Term 1 Exam (max 80), Term 2 Exam (max 80).
+  A teacher adds students, enters marks per exam, and can view a marksheet for any student for any exam, or a consolidated report across all 4 exams.
+</div>
+
+<!-- Navigation Mockup -->
+<div class="nav-mockup">
+  <div class="nav-item active">Config</div>
+  <div class="nav-item">Students</div>
+  <div class="nav-item">Enter Marks</div>
+  <div class="nav-item">Consolidation</div>
+  <div class="nav-item">Marksheet</div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- SCREEN 1: CONFIG -->
+<!-- ========================================================================== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">1</div>
+    <h2>Config - Subjects & Grading</h2>
+  </div>
+  <p class="screen-desc">Configure subjects with max/min (pass) marks for each exam type, and set grade thresholds</p>
+
+  <div class="config-section">
+    <h3>Subjects & Marks Configuration</h3>
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">#</th>
+          <th rowspan="2">Subject</th>
+          <th colspan="2" class="center" style="background:#e7f5ff; color:#1864ab;">Unit 1 Test</th>
+          <th colspan="2" class="center" style="background:#e7f5ff; color:#1864ab;">Unit 2 Test</th>
+          <th colspan="2" class="center" style="background:#fff3bf; color:#e67700;">Term 1 Exam</th>
+          <th colspan="2" class="center" style="background:#fff3bf; color:#e67700;">Term 2 Exam</th>
+          <th rowspan="2">Actions</th>
+        </tr>
+        <tr>
+          <th class="center" style="font-size:12px;">Max</th>
+          <th class="center" style="font-size:12px;">Pass</th>
+          <th class="center" style="font-size:12px;">Max</th>
+          <th class="center" style="font-size:12px;">Pass</th>
+          <th class="center" style="font-size:12px;">Max</th>
+          <th class="center" style="font-size:12px;">Pass</th>
+          <th class="center" style="font-size:12px;">Max</th>
+          <th class="center" style="font-size:12px;">Pass</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><strong>English</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+        <tr>
+          <td>2</td><td><strong>Hindi</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+        <tr>
+          <td>3</td><td><strong>Marathi</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+        <tr>
+          <td>4</td><td><strong>Social Science</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+        <tr>
+          <td>5</td><td><strong>Maths</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+        <tr>
+          <td>6</td><td><strong>Science</strong></td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="center">80</td><td class="center">28</td>
+          <td class="actions"><button class="btn btn-gray btn-sm">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="localStorage-hint">
+      <strong>localStorage key:</strong> <code>subjects</code> — stores array of subjects with max/min marks per exam type
+    </div>
+  </div>
+
+  <!-- Add Subject Form -->
+  <div style="max-width: 700px;">
+    <h3 style="font-size:15px; font-weight:600; color:#495057; margin-bottom:12px;">ADD / EDIT SUBJECT</h3>
+    <div class="form-group">
+      <label>Subject Name *</label>
+      <input type="text" placeholder="e.g. English, Hindi, Maths" style="max-width:300px;">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Unit 1 Max</label>
+        <input type="number" value="30">
+      </div>
+      <div class="form-group">
+        <label>Unit 1 Pass</label>
+        <input type="number" value="11">
+      </div>
+      <div class="form-group">
+        <label>Unit 2 Max</label>
+        <input type="number" value="30">
+      </div>
+      <div class="form-group">
+        <label>Unit 2 Pass</label>
+        <input type="number" value="11">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Term 1 Max</label>
+        <input type="number" value="80">
+      </div>
+      <div class="form-group">
+        <label>Term 1 Pass</label>
+        <input type="number" value="28">
+      </div>
+      <div class="form-group">
+        <label>Term 2 Max</label>
+        <input type="number" value="80">
+      </div>
+      <div class="form-group">
+        <label>Term 2 Pass</label>
+        <input type="number" value="28">
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary">+ Add Subject</button>
+      <button class="btn btn-gray">Clear</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Grade Configuration -->
+  <div class="config-section">
+    <h3>Grade Thresholds</h3>
+    <p style="font-size:13px; color:#868e96; margin-bottom:12px;">Grade is calculated on overall percentage across all subjects</p>
+    <table style="max-width: 400px;">
+      <thead>
+        <tr><th>Grade</th><th>Minimum %</th><th>Actions</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge badge-red">Failed</span></td><td>Below 35%</td><td><button class="btn btn-gray btn-sm">Edit</button></td></tr>
+        <tr><td><span class="badge badge-orange">Second Class</span></td><td>35% and above</td><td><button class="btn btn-gray btn-sm">Edit</button></td></tr>
+        <tr><td><span class="badge badge-blue">First Class</span></td><td>60% and above</td><td><button class="btn btn-gray btn-sm">Edit</button></td></tr>
+        <tr><td><span class="badge badge-purple">Merit</span></td><td>85% and above</td><td><button class="btn btn-gray btn-sm">Edit</button></td></tr>
+      </tbody>
+    </table>
+
+    <div class="localStorage-hint">
+      <strong>localStorage key:</strong> <code>grades</code> — stores array of grade thresholds with name and min percentage
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- SCREEN 2: STUDENTS -->
+<!-- ========================================================================== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">2</div>
+    <h2>Students</h2>
+  </div>
+  <p class="screen-desc">Add and manage student records. Roll numbers are auto-assigned.</p>
+
+  <div class="layout">
+    <div class="panel" style="max-width: 350px;">
+      <h3>Add Student Form</h3>
+      <div class="form-group">
+        <label>Student Name *</label>
+        <div class="hint">Full name of the student</div>
+        <input type="text" placeholder="Enter student name">
+      </div>
+      <div class="form-group">
+        <label>Class *</label>
+        <select>
+          <option value="">Select class...</option>
+          <option>8th</option>
+          <option>9th</option>
+          <option selected>10th</option>
+          <option>11th</option>
+          <option>12th</option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary">+ Add Student</button>
+        <button class="btn btn-gray">Clear</button>
+      </div>
+
+      <div class="localStorage-hint">
+        <strong>localStorage key:</strong> <code>students</code> — stores array with id, name, class. Roll number = array index + 1
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Students List (20 students)</h3>
+      <table>
+        <thead>
+          <tr><th>Roll No</th><th>Student Name</th><th>Class</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Rakesh</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>2</td><td>James</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>3</td><td>Priya</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>4</td><td>Neha</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>5</td><td>Ali</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>6</td><td>Jhon</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>7</td><td>Amy</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>8</td><td>Sameer</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>9</td><td>James</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr><td>10</td><td>Max</td><td>10th</td><td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td></tr>
+          <tr style="color:#adb5bd;"><td colspan="4" style="text-align:center; font-style:italic;">... and 10 more students (Ethan, Umar, Joe, Sneha, Rahul, Kartik, Ayesha, Alen, Zoya, Zoan)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- SCREEN 3: ENTER MARKS -->
+<!-- ========================================================================== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">3</div>
+    <h2>Enter Marks</h2>
+  </div>
+  <p class="screen-desc">Select an exam type, then enter marks for all students at once (like a register)</p>
+
+  <!-- Exam Type Tabs -->
+  <div class="exam-tabs">
+    <div class="exam-tab active">Unit 1 Test (max 30)</div>
+    <div class="exam-tab">Unit 2 Test (max 30)</div>
+    <div class="exam-tab">Term 1 Exam (max 80)</div>
+    <div class="exam-tab">Term 2 Exam (max 80)</div>
+  </div>
+
+  <div class="info-box">
+    Entering marks for: <strong>Unit 1 Test</strong> &nbsp;|&nbsp; Max marks per subject: <strong>30</strong> &nbsp;|&nbsp; Pass marks: <strong>11</strong>
+  </div>
+
+  <div style="overflow-x: auto;">
+    <table class="marks-grid">
+      <thead>
+        <tr>
+          <th style="width:50px;">Roll</th>
+          <th style="width:140px;">Student Name</th>
+          <th class="center">English<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+          <th class="center">Hindi<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+          <th class="center">Marathi<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+          <th class="center">Social Sci.<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+          <th class="center">Maths<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+          <th class="center">Science<br><span style="font-weight:400; font-size:11px; color:#868e96;">max 30</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><strong>Rakesh</strong></td>
+          <td class="center"><input type="number" value="25"></td>
+          <td class="center"><input type="number" value="22"></td>
+          <td class="center"><input type="number" value="28"></td>
+          <td class="center"><input type="number" value="25"></td>
+          <td class="center"><input type="number" value="25"></td>
+          <td class="center"><input type="number" value="17"></td>
+        </tr>
+        <tr>
+          <td>2</td><td><strong>James</strong></td>
+          <td class="center"><input type="number" value="28"></td>
+          <td class="center"><input type="number" value="26"></td>
+          <td class="center"><input type="number" value="13"></td>
+          <td class="center"><input type="number" value="22"></td>
+          <td class="center"><input type="number" value="21"></td>
+          <td class="center"><input type="number" value="18"></td>
+        </tr>
+        <tr>
+          <td>3</td><td><strong>Priya</strong></td>
+          <td class="center"><input type="number" value="27"></td>
+          <td class="center"><input type="number" value="29"></td>
+          <td class="center"><input type="number" value="20"></td>
+          <td class="center"><input type="number" value="20"></td>
+          <td class="center"><input type="number" value="28"></td>
+          <td class="center"><input type="number" value="23"></td>
+        </tr>
+        <tr>
+          <td>4</td><td><strong>Neha</strong></td>
+          <td class="center"><input type="number" value="26"></td>
+          <td class="center"><input type="number" value="28"></td>
+          <td class="center"><input type="number" value="25"></td>
+          <td class="center"><input type="number" value="13"></td>
+          <td class="center"><input type="number" value="22"></td>
+          <td class="center"><input type="number" value="22"></td>
+        </tr>
+        <tr>
+          <td>5</td><td><strong>Ali</strong></td>
+          <td class="center"><input type="number" value="9" style="border-color:#fa5252; background:#fff5f5;"></td>
+          <td class="center"><input type="number" value="8" style="border-color:#fa5252; background:#fff5f5;"></td>
+          <td class="center"><input type="number" value="12"></td>
+          <td class="center"><input type="number" value="8" style="border-color:#fa5252; background:#fff5f5;"></td>
+          <td class="center"><input type="number" value="14"></td>
+          <td class="center"><input type="number" value="11"></td>
+        </tr>
+        <tr style="color:#adb5bd;"><td colspan="8" style="text-align:center; font-style:italic; padding:12px;">... rows continue for all 20 students</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="btn-group" style="margin-top: 16px;">
+    <button class="btn btn-success">Save All Marks</button>
+    <button class="btn btn-gray">Clear All</button>
+  </div>
+
+  <p style="font-size:12px; color:#fa5252; margin-top:8px;">* Red-highlighted inputs indicate marks below the passing threshold (11)</p>
+
+  <div class="localStorage-hint">
+    <strong>localStorage key:</strong> <code>marks</code> — stores object like <code>{ "unit1": { "1": { "english": 25, "hindi": 22, ... }, "2": { ... } }, "unit2": { ... }, "term1": { ... }, "term2": { ... } }</code>
+    <br>Key = exam type, sub-key = roll number, value = marks per subject
+  </div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- SCREEN 4: CONSOLIDATION -->
+<!-- ========================================================================== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">4</div>
+    <h2>Consolidation</h2>
+  </div>
+  <p class="screen-desc">View total marks across all 4 exams for every student. Max per subject = 30 + 30 + 80 + 80 = 220</p>
+
+  <div class="info-box">
+    <strong>How it works:</strong> For each student, each subject total = Unit 1 + Unit 2 + Term 1 + Term 2.
+    Grand total max = 6 subjects x 220 = <strong>1320</strong>
+  </div>
+
+  <div style="overflow-x: auto;">
+    <table>
+      <thead>
+        <tr>
+          <th>Roll</th>
+          <th>Student</th>
+          <th>Breakdown</th>
+          <th class="center">English<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center">Hindi<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center">Marathi<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center">Social Sci.<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center">Maths<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center">Science<br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 220</span></th>
+          <th class="center"><strong>Grand<br>Total</strong><br><span style="font-weight:400; font-size:11px; color:#868e96;">/ 1320</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Student 1: Rakesh -->
+        <tr class="consol-row-sub">
+          <td rowspan="5" style="vertical-align:middle; font-weight:700;">1</td>
+          <td rowspan="5" style="vertical-align:middle; font-weight:700;">Rakesh</td>
+          <td><span class="badge badge-blue">Unit 1</span></td>
+          <td class="center">25</td><td class="center">22</td><td class="center">28</td><td class="center">25</td><td class="center">25</td><td class="center">17</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-blue">Unit 2</span></td>
+          <td class="center">22</td><td class="center">15</td><td class="center">9</td><td class="center">8</td><td class="center">21</td><td class="center">29</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-orange">Term 1</span></td>
+          <td class="center">55</td><td class="center">62</td><td class="center">58</td><td class="center">65</td><td class="center">48</td><td class="center">52</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-orange">Term 2</span></td>
+          <td class="center">58</td><td class="center">61</td><td class="center">55</td><td class="center">64</td><td class="center">52</td><td class="center">56</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-highlight">
+          <td><strong>TOTAL</strong></td>
+          <td class="center"><strong>160</strong></td>
+          <td class="center"><strong>160</strong></td>
+          <td class="center"><strong>150</strong></td>
+          <td class="center"><strong>162</strong></td>
+          <td class="center"><strong>146</strong></td>
+          <td class="center"><strong>154</strong></td>
+          <td class="center"><strong>932</strong></td>
+        </tr>
+
+        <tr><td colspan="10" style="padding:2px; background:#e9ecef;"></td></tr>
+
+        <!-- Student 2: James (abbreviated) -->
+        <tr class="consol-row-sub">
+          <td rowspan="5" style="vertical-align:middle; font-weight:700;">2</td>
+          <td rowspan="5" style="vertical-align:middle; font-weight:700;">James</td>
+          <td><span class="badge badge-blue">Unit 1</span></td>
+          <td class="center">28</td><td class="center">26</td><td class="center">13</td><td class="center">22</td><td class="center">21</td><td class="center">18</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-blue">Unit 2</span></td>
+          <td class="center">26</td><td class="center">29</td><td class="center">16</td><td class="center">26</td><td class="center">14</td><td class="center">20</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-orange">Term 1</span></td>
+          <td class="center">48</td><td class="center">55</td><td class="center">51</td><td class="center">59</td><td class="center">64</td><td class="center">60</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-sub">
+          <td><span class="badge badge-orange">Term 2</span></td>
+          <td class="center">45</td><td class="center">52</td><td class="center">48</td><td class="center">55</td><td class="center">59</td><td class="center">54</td>
+          <td></td>
+        </tr>
+        <tr class="consol-row-highlight">
+          <td><strong>TOTAL</strong></td>
+          <td class="center"><strong>147</strong></td>
+          <td class="center"><strong>162</strong></td>
+          <td class="center"><strong>128</strong></td>
+          <td class="center"><strong>162</strong></td>
+          <td class="center"><strong>158</strong></td>
+          <td class="center"><strong>152</strong></td>
+          <td class="center"><strong>909</strong></td>
+        </tr>
+
+        <tr><td colspan="10" style="padding:2px; background:#e9ecef;"></td></tr>
+        <tr style="color:#adb5bd;"><td colspan="10" style="text-align:center; font-style:italic; padding:12px;">... continues for all 20 students</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ========================================================================== -->
+<!-- SCREEN 5: MARKSHEET REPORT -->
+<!-- ========================================================================== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">5</div>
+    <h2>Marksheet Report</h2>
+  </div>
+  <p class="screen-desc">Select a student and exam type to generate a printable marksheet</p>
+
+  <!-- Selection Controls -->
+  <div style="display:flex; gap:16px; align-items:end; flex-wrap:wrap; margin-bottom:20px;">
+    <div class="form-group" style="min-width:200px; margin-bottom:0;">
+      <label>Select Student *</label>
+      <select>
+        <option value="">Choose a student...</option>
+        <option>1 - Rakesh</option>
+        <option>2 - James</option>
+        <option selected>3 - Priya</option>
+        <option>4 - Neha</option>
+        <option>5 - Ali</option>
+      </select>
+    </div>
+    <div class="form-group" style="min-width:200px; margin-bottom:0;">
+      <label>Select Exam *</label>
+      <select>
+        <option value="">Choose exam type...</option>
+        <option selected>Unit 1 Test</option>
+        <option>Unit 2 Test</option>
+        <option>Term 1 Exam</option>
+        <option>Term 2 Exam</option>
+        <option>Consolidated (All Exams)</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">View Marksheet</button>
+    <button class="btn btn-gray">Print</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== REPORT: Single Exam (Unit 1) ===== -->
+  <h3 style="font-size:14px; color:#495057; margin-bottom:12px;">MARKSHEET — SINGLE EXAM VIEW</h3>
+
+  <div class="report-card" style="max-width: 700px; margin-bottom: 28px;">
+    <div class="report-title">ABC Public School</div>
+    <div class="report-subtitle">Unit 1 Test — Academic Year 2025-26</div>
+
+    <div class="report-info" style="background:#f8f9fa; padding:12px; border-radius:6px;">
+      <div><span>Student Name:</span> <strong>Priya</strong></div>
+      <div><span>Class:</span> <strong>10th</strong></div>
+      <div><span>Roll Number:</span> <strong>3</strong></div>
+      <div><span>Exam:</span> <strong>Unit 1 Test</strong></div>
+    </div>
+
+    <table style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Subject</th>
+          <th class="center">Max Marks</th>
+          <th class="center">Pass Marks</th>
+          <th class="center">Obtained</th>
+          <th class="center">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>English</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>27</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>2</td><td>Hindi</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>29</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>3</td><td>Marathi</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>20</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>4</td><td>Social Science</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>20</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>5</td><td>Maths</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>28</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>6</td><td>Science</td>
+          <td class="center">30</td><td class="center">11</td>
+          <td class="center"><strong>23</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="report-summary">
+      <div class="item">
+        <div class="value">147</div>
+        <div class="label">Obtained (out of 180)</div>
+      </div>
+      <div class="item">
+        <div class="value">81.7%</div>
+        <div class="label">Percentage</div>
+      </div>
+      <div class="item">
+        <div class="value" style="color:#228be6;">First Class</div>
+        <div class="label">Grade</div>
+      </div>
+      <div class="item">
+        <div class="value pass">PASS</div>
+        <div class="label">Overall Result</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ===== REPORT: Consolidated ===== -->
+  <h3 style="font-size:14px; color:#495057; margin-bottom:12px;">MARKSHEET — CONSOLIDATED VIEW (when "Consolidated" is selected)</h3>
+
+  <div class="report-card" style="max-width: 750px;">
+    <div class="report-title">ABC Public School</div>
+    <div class="report-subtitle">Consolidated Marksheet — Academic Year 2025-26 (All Exams)</div>
+
+    <div class="report-info" style="background:#f8f9fa; padding:12px; border-radius:6px;">
+      <div><span>Student Name:</span> <strong>Priya</strong></div>
+      <div><span>Class:</span> <strong>10th</strong></div>
+      <div><span>Roll Number:</span> <strong>3</strong></div>
+      <div><span>Report Type:</span> <strong>Consolidated (All 4 Exams)</strong></div>
+    </div>
+
+    <table style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th rowspan="2">#</th>
+          <th rowspan="2">Subject</th>
+          <th class="center" style="background:#e7f5ff; font-size:12px;">Unit 1</th>
+          <th class="center" style="background:#e7f5ff; font-size:12px;">Unit 2</th>
+          <th class="center" style="background:#fff3bf; font-size:12px;">Term 1</th>
+          <th class="center" style="background:#fff3bf; font-size:12px;">Term 2</th>
+          <th class="center" style="background:#d3f9d8; font-size:12px;"><strong>Total</strong></th>
+          <th class="center" rowspan="2">Result</th>
+        </tr>
+        <tr>
+          <th class="center" style="font-size:11px; color:#868e96;">/ 30</th>
+          <th class="center" style="font-size:11px; color:#868e96;">/ 30</th>
+          <th class="center" style="font-size:11px; color:#868e96;">/ 80</th>
+          <th class="center" style="font-size:11px; color:#868e96;">/ 80</th>
+          <th class="center" style="font-size:11px; color:#868e96;">/ 220</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>English</td>
+          <td class="center">27</td><td class="center">16</td><td class="center">72</td><td class="center">68</td>
+          <td class="center"><strong>183</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>2</td><td>Hindi</td>
+          <td class="center">29</td><td class="center">21</td><td class="center">75</td><td class="center">72</td>
+          <td class="center"><strong>197</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>3</td><td>Marathi</td>
+          <td class="center">20</td><td class="center">12</td><td class="center">70</td><td class="center">69</td>
+          <td class="center"><strong>171</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>4</td><td>Social Science</td>
+          <td class="center">20</td><td class="center">14</td><td class="center">78</td><td class="center">74</td>
+          <td class="center"><strong>186</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>5</td><td>Maths</td>
+          <td class="center">28</td><td class="center">16</td><td class="center">71</td><td class="center">67</td>
+          <td class="center"><strong>182</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+        <tr>
+          <td>6</td><td>Science</td>
+          <td class="center">23</td><td class="center">12</td><td class="center">74</td><td class="center">70</td>
+          <td class="center"><strong>179</strong></td>
+          <td class="center"><span class="badge badge-green">Pass</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="report-summary">
+      <div class="item">
+        <div class="value">1098</div>
+        <div class="label">Obtained (out of 1320)</div>
+      </div>
+      <div class="item">
+        <div class="value">83.2%</div>
+        <div class="label">Percentage</div>
+      </div>
+      <div class="item">
+        <div class="value" style="color:#228be6;">First Class</div>
+        <div class="label">Grade</div>
+      </div>
+      <div class="item">
+        <div class="value pass">PASS</div>
+        <div class="label">Overall Result</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px; padding-top:14px; border-top: 1px solid #e9ecef; font-size:12px; color:#adb5bd; text-align:center;">
+      Computer generated marksheet &nbsp;|&nbsp; Printed on 03 April 2026
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Grade reference -->
+  <h3 style="font-size:14px; color:#868e96; margin-bottom:8px;">GRADE REFERENCE</h3>
+  <table class="grade-table" style="max-width:350px;">
+    <tr><td>85% and above</td><td class="grade"><span class="badge badge-purple">Merit</span></td></tr>
+    <tr><td>60% - 84%</td><td class="grade"><span class="badge badge-blue">First Class</span></td></tr>
+    <tr><td>35% - 59%</td><td class="grade"><span class="badge badge-orange">Second Class</span></td></tr>
+    <tr><td>Below 35%</td><td class="grade"><span class="badge badge-red">Failed</span></td></tr>
+  </table>
+</div>
+
+<!-- ========================================================================== -->
+<!-- localStorage SUMMARY -->
+<!-- ========================================================================== -->
+<div class="screen" style="background:#fff9db; border: 2px solid #ffd43b;">
+  <div class="screen-header">
+    <h2 style="color:#e67700;">localStorage Keys Summary</h2>
+  </div>
+  <table style="max-width:600px; margin-top:12px;">
+    <thead>
+      <tr><th>Key</th><th>What it stores</th><th>Example</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code style="background:#fff3bf; padding:2px 8px; border-radius:4px;">subjects</code></td>
+        <td>Array of subjects with max/min marks per exam type</td>
+        <td style="font-size:12px; font-family:monospace;">[{ name: "English", unit1Max: 30, unit1Pass: 11, ... }]</td>
+      </tr>
+      <tr>
+        <td><code style="background:#fff3bf; padding:2px 8px; border-radius:4px;">grades</code></td>
+        <td>Array of grade thresholds</td>
+        <td style="font-size:12px; font-family:monospace;">[{ name: "Merit", minPercent: 85 }, ...]</td>
+      </tr>
+      <tr>
+        <td><code style="background:#fff3bf; padding:2px 8px; border-radius:4px;">students</code></td>
+        <td>Array of student objects</td>
+        <td style="font-size:12px; font-family:monospace;">[{ id: 1, name: "Rakesh", class: "10th" }]</td>
+      </tr>
+      <tr>
+        <td><code style="background:#fff3bf; padding:2px 8px; border-radius:4px;">marks</code></td>
+        <td>Object keyed by exam type, then roll number</td>
+        <td style="font-size:12px; font-family:monospace;">{ unit1: { 1: { english: 25, hindi: 22 } } }</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

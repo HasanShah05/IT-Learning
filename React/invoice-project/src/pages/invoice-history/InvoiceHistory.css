@@ -1,0 +1,501 @@
+/* ─── Invoice History Page ───────────────────────────────── */
+.history-page {
+  animation: pageIn var(--ease-slow) both;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.step-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--brand-purple), #a855f7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(124, 110, 242, 0.35);
+  flex-shrink: 0;
+}
+
+.history-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.history-header p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Controls */
+.history-top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.select-delete-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.select-group { min-width: 280px; }
+
+.select-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.select-group select {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.select-group select:focus {
+  border-color: var(--brand-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+.history-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.view-btn {
+  height: 44px;
+  padding: 0 22px;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-dark));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--ease-fast), box-shadow var(--ease-fast);
+  box-shadow: 0 4px 14px rgba(124, 110, 242, 0.3);
+}
+
+.view-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 110, 242, 0.4);
+}
+
+.print-btn {
+  height: 44px;
+  padding: 0 22px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.print-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.delete-invoice-btn {
+  height: 44px;
+  padding: 0 22px;
+  background: var(--bg-surface);
+  color: var(--brand-red);
+  border: 1.5px solid #fdd;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.delete-invoice-btn:hover {
+  background: #fff2f1;
+  border-color: var(--brand-red);
+}
+
+/* ─── Invoice Preview Card ────────────────────────────────── */
+.invoice-preview {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  margin-top: 8px;
+  max-width: 900px;
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Decorative top bar */
+.invoice-preview::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-purple), #a855f7, var(--brand-blue));
+}
+
+.preview-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.preview-top h3 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.preview-top p {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.invoice-meta { text-align: right; }
+
+.invoice-meta h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.invoice-meta p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+/* Bill-To Block */
+.bill-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--bg-body);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border-color);
+}
+
+.bill-box p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.muted {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px !important;
+}
+
+/* Preview Table */
+.preview-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+
+.preview-table thead tr {
+  border-bottom: 2px solid var(--border-color);
+}
+
+.preview-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.preview-table td {
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.preview-table tbody tr:last-child td { border-bottom: none; }
+
+/* Totals */
+.totals-box {
+  margin-left: auto;
+  max-width: 360px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  background: var(--bg-body);
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.total-row:last-of-type { border-bottom: none; }
+
+.grand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 2px solid var(--brand-purple);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--brand-purple);
+  letter-spacing: -0.02em;
+}
+
+/* Footer */
+.invoice-footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .preview-top, .bill-box, .history-top-controls, .select-delete-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .history-header {
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+  .history-header h2 {
+    font-size: 24px;
+  }
+  .select-group {
+    min-width: 0;
+    width: 100%;
+  }
+  .history-buttons {
+    width: 100%;
+  }
+  .view-btn,
+  .print-btn,
+  .delete-invoice-btn {
+    display: inline-flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+  .invoice-preview {
+    max-width: 100%;
+    padding: 28px;
+    border-radius: var(--radius-lg);
+  }
+  .preview-top h3 {
+    font-size: 30px;
+  }
+  .invoice-meta { text-align: left; }
+  .totals-box { max-width: 100%; }
+}
+
+@media (max-width: 520px) {
+  .history-header {
+    gap: 12px;
+  }
+
+  .history-header h2 {
+    font-size: 22px;
+  }
+
+  .history-header p {
+    font-size: 13px;
+  }
+
+  .history-buttons {
+    flex-direction: column;
+  }
+
+  .invoice-preview {
+    padding: 22px 16px;
+    overflow: visible;
+  }
+
+  .preview-top {
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .preview-top h3 {
+    font-size: 24px;
+  }
+
+  .bill-box {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .preview-table th,
+  .preview-table td {
+    padding: 10px 12px;
+  }
+
+  .preview-table,
+  .preview-table thead,
+  .preview-table tbody,
+  .preview-table tr,
+  .preview-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .preview-table thead {
+    display: none;
+  }
+
+  .preview-table tr {
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg-surface);
+  }
+
+  .preview-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: right;
+  }
+
+  .preview-table td::before {
+    content: "";
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .preview-table td:nth-child(1)::before { content: "#"; }
+  .preview-table td:nth-child(2)::before { content: "Product"; }
+  .preview-table td:nth-child(3)::before { content: "Qty"; }
+  .preview-table td:nth-child(4)::before { content: "Unit"; }
+  .preview-table td:nth-child(5)::before { content: "Price"; }
+  .preview-table td:nth-child(6)::before { content: "Total"; }
+
+  .totals-box {
+    padding: 16px;
+  }
+
+  .grand-row {
+    font-size: 18px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body * { visibility: hidden; }
+
+  .print-area,
+  .print-area * { visibility: visible; }
+
+  .print-area {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 24px;
+  }
+
+  .print-area::before { display: none; }
+
+  .no-print { display: none !important; }
+}

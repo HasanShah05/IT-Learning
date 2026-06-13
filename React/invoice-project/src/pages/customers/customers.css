@@ -1,0 +1,527 @@
+/* ─── Customers Page ─────────────────────────────────────── */
+.customers-page {
+  animation: pageIn var(--ease-slow) both;
+}
+
+.customers-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.step-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--brand-purple), #a855f7);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(124, 110, 242, 0.35);
+  flex-shrink: 0;
+}
+
+.customers-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.customers-header p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.customers-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.form-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.customers-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.customers-top input,
+.customers-top select,
+.customers-search-input,
+.customers-sort-select {
+  height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.customers-search-input {
+  min-width: 220px;
+}
+
+.customers-top input::placeholder,
+.customers-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.customers-top input:focus,
+.customers-top select:focus,
+.customers-search-input:focus,
+.customers-sort-select:focus {
+  border-color: var(--brand-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Table Card */
+.table-wrapper {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.customers-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+}
+
+.customers-table thead tr {
+  background: linear-gradient(90deg, #fafafd 0%, var(--bg-surface) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.customers-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.customers-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--ease-fast);
+}
+
+.customers-table tbody tr:last-child td { border-bottom: none; }
+.customers-table tbody tr:hover td { background: #fafaff; }
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn {
+  height: 32px;
+  padding: 0 14px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.edit-btn:hover {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  background: var(--brand-purple-light);
+}
+
+.delete-btn {
+  height: 32px;
+  padding: 0 14px;
+  background: var(--bg-surface);
+  color: var(--brand-red);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ease-fast);
+  box-shadow: var(--shadow-xs);
+}
+
+.delete-btn:hover {
+  border-color: var(--brand-red);
+  background: #fff2f1;
+}
+
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-dark));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--ease-fast), box-shadow var(--ease-fast);
+  box-shadow: 0 4px 14px rgba(124, 110, 242, 0.3);
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 110, 242, 0.4);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.clear-btn {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--ease-fast);
+}
+
+.clear-btn:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/* ─── Modal Form ─────────────────────────────────────────── */
+.customer-form { padding: 4px 0; }
+
+.form-group { margin-bottom: 22px; }
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.form-group p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+}
+
+.form-group textarea {
+  height: auto;
+  padding: 12px 16px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--brand-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .customers-header {
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .customers-header h2 {
+    font-size: 24px;
+  }
+
+  .customers-top {
+    align-items: stretch;
+  }
+
+  .customers-controls {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .customers-search-input,
+  .customers-sort-select,
+  .customers-top .add-btn {
+    flex: 1 1 180px;
+  }
+}
+
+@media (max-width: 520px) {
+  .customers-header {
+    gap: 12px;
+  }
+
+  .customers-header h2 {
+    font-size: 22px;
+  }
+
+  .customers-header p {
+    font-size: 13px;
+  }
+
+  .customers-controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto);
+    align-items: start;
+    gap: 10px;
+  }
+
+  .customers-search-input {
+    min-width: 0;
+    grid-column: 1 / -1;
+  }
+
+  .button-group {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  .action-buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .customers-sort-select,
+  .customers-top .add-btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .customers-top .add-btn {
+    justify-content: center;
+    height: 38px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
+
+  .button-group .add-btn,
+  .button-group .clear-btn {
+    width: auto;
+    min-width: 120px;
+    justify-content: center;
+    height: 40px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: auto;
+    min-width: 88px;
+    justify-content: center;
+  }
+
+  .customer-form {
+    padding-top: 2px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    min-height: 40px;
+    padding-inline: 14px;
+    font-size: 13px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group p {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .customer-form .button-group {
+    justify-content: stretch;
+  }
+
+  .customer-form .button-group .add-btn,
+  .customer-form .button-group .clear-btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .button-group .add-btn,
+  .button-group .clear-btn {
+    min-width: 0;
+    width: 100%;
+    padding-inline: 10px;
+  }
+
+  .table-wrapper {
+    border-radius: var(--radius-md);
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .customers-table,
+  .customers-table thead,
+  .customers-table tbody,
+  .customers-table tr,
+  .customers-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .customers-table thead {
+    display: none;
+  }
+
+  .customers-table tr {
+    margin-bottom: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 11px 14px;
+  }
+
+  .customers-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .customers-table td::before {
+    content: "";
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .customers-table td:nth-child(1)::before { content: "#"; }
+  .customers-table td:nth-child(2)::before { content: "Name"; }
+  .customers-table td:nth-child(3)::before { content: "Phone"; }
+  .customers-table td:nth-child(4)::before { content: "Address"; }
+  .customers-table td:nth-child(5)::before { content: "Actions"; }
+
+  .customers-table .no-data {
+    display: block;
+    text-align: center;
+  }
+
+  .customers-table .no-data::before {
+    display: none;
+  }
+
+  .customers-table td:last-child {
+    display: block;
+    text-align: left;
+  }
+
+  .customers-table td:last-child::before {
+    display: block;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,327 @@
+/* ─── Inventory Page ─────────────────────────────────────── */
+.inventory-page {
+  animation: pageIn var(--ease-slow) both;
+}
+
+/* Page Header */
+.inventory-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.inventory-header h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.inventory-header p {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Mode Switch */
+.mode-switch {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  background: var(--bg-surface);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  width: fit-content;
+}
+
+.mode-btn {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  transition: all var(--ease-fast);
+}
+
+.mode-btn:hover {
+  color: var(--text-primary);
+}
+
+.mode-btn.active {
+  background: var(--brand-purple);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form */
+.inventory-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  background: var(--bg-surface);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.inventory-form select,
+.inventory-form input {
+  height: 40px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  min-width: 200px;
+}
+
+.inventory-form select:focus,
+.inventory-form input:focus {
+  border-color: var(--brand-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+.inventory-form button {
+  height: 40px;
+  padding: 0 20px;
+  background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-dark));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--ease-fast), box-shadow var(--ease-fast);
+  box-shadow: 0 4px 14px rgba(124, 110, 242, 0.3);
+  white-space: nowrap;
+}
+
+.inventory-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 110, 242, 0.4);
+}
+
+.inventory-form button:active {
+  transform: translateY(0);
+}
+
+.msg {
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.msg.success {
+  color: #22c55e;
+}
+
+.msg.error {
+  color: #ef4444;
+}
+
+/* Table Wrapper */
+.log-table-wrapper {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 20px;
+}
+
+.log-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+}
+
+.log-table thead tr {
+  background: linear-gradient(90deg, #fafafd 0%, var(--bg-surface) 100%);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.log-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.log-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  transition: background var(--ease-fast);
+}
+
+.log-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.log-table tbody tr:hover td {
+  background: #fafaff;
+}
+
+/* Badges */
+.in-type {
+  color: #22c55e !important;
+  font-weight: 700 !important;
+}
+
+.out-type {
+  color: #ef4444 !important;
+  font-weight: 700 !important;
+}
+
+/* Pagination */
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .inventory-header {
+    align-items: flex-start;
+  }
+
+  .inventory-header h2 {
+    font-size: 24px;
+  }
+
+  .inventory-form {
+    align-items: stretch;
+  }
+
+  .inventory-form select,
+  .inventory-form input,
+  .inventory-form button {
+    flex: 1 1 180px;
+  }
+
+  .msg {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .inventory-header h2 {
+    font-size: 22px;
+  }
+
+  .inventory-header p {
+    font-size: 13px;
+  }
+
+  .mode-switch {
+    width: 100%;
+  }
+
+  .mode-btn {
+    flex: 1;
+    padding-inline: 10px;
+  }
+
+  .inventory-form {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .inventory-form select,
+  .inventory-form input,
+  .inventory-form button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .log-table-wrapper {
+    border-radius: var(--radius-md);
+    overflow: visible;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .log-table,
+  .log-table thead,
+  .log-table tbody,
+  .log-table tr,
+  .log-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .log-table thead {
+    display: none;
+  }
+
+  .log-table tr {
+    margin-bottom: 12px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .log-table th,
+  .log-table td {
+    padding: 11px 14px;
+  }
+
+  .log-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  .log-table td::before {
+    content: "";
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .log-table td:nth-child(1)::before { content: "Date"; }
+  .log-table td:nth-child(2)::before { content: "Product"; }
+  .log-table td:nth-child(3)::before { content: "Type"; }
+  .log-table td:nth-child(4)::before { content: "Qty"; }
+  .log-table td:nth-child(5)::before { content: "Notes"; }
+
+  .pagination-wrapper {
+    padding-bottom: 4px;
+  }
+}

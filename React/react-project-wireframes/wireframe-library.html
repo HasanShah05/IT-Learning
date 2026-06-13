@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project 3: Library Book Tracker - Wireframe</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', sans-serif; background: #f1f3f5; color: #212529; padding: 24px; }
+
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .subtitle { color: #868e96; margin-bottom: 32px; font-size: 15px; }
+
+  .screen { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .screen-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .screen-number { background: #2b8a3e; color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .screen h2 { font-size: 20px; }
+  .screen-desc { color: #868e96; font-size: 14px; margin-bottom: 20px; margin-left: 40px; }
+
+  .layout { display: flex; gap: 24px; flex-wrap: wrap; }
+  .panel { flex: 1; min-width: 300px; }
+  .panel h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #495057; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #495057; }
+  .form-group .hint { font-size: 12px; color: #adb5bd; margin-bottom: 4px; }
+  .form-group input, .form-group select { width: 100%; padding: 10px 12px; border: 1px solid #dee2e6; border-radius: 6px; font-size: 14px; background: #f8f9fa; }
+
+  .btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+  .btn-primary { background: #2b8a3e; color: #fff; }
+  .btn-danger { background: #fa5252; color: #fff; }
+  .btn-success { background: #40c057; color: #fff; }
+  .btn-warning { background: #fab005; color: #212529; }
+  .btn-gray { background: #e9ecef; color: #495057; }
+  .btn-group { display: flex; gap: 8px; margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; padding: 10px 12px; background: #f8f9fa; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f1f3f5; }
+  .actions { display: flex; gap: 6px; }
+  .btn-sm { padding: 4px 10px; font-size: 12px; border-radius: 4px; }
+
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge-green { background: #d3f9d8; color: #2b8a3e; }
+  .badge-red { background: #ffe3e3; color: #c92a2a; }
+  .badge-blue { background: #d0ebff; color: #1864ab; }
+  .badge-yellow { background: #fff3bf; color: #e67700; }
+
+  .nav-mockup { display: flex; gap: 0; margin-bottom: 28px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  .nav-item { padding: 12px 24px; font-size: 14px; font-weight: 600; color: #868e96; border-bottom: 3px solid transparent; }
+  .nav-item.active { color: #2b8a3e; border-bottom-color: #2b8a3e; background: #ebfbee; }
+
+  .divider { height: 1px; background: #e9ecef; margin: 20px 0; }
+
+  .report-card { border: 2px solid #212529; padding: 28px; border-radius: 8px; background: #fff; }
+  .report-title { font-size: 22px; font-weight: 700; margin-bottom: 2px; }
+  .report-subtitle { color: #868e96; margin-bottom: 16px; font-size: 13px; }
+  .report-info { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 20px; font-size: 14px; }
+  .report-info span { color: #868e96; }
+
+  .stats-row { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .stat-card { background: #f8f9fa; border-radius: 8px; padding: 16px 20px; flex: 1; min-width: 140px; }
+  .stat-card .value { font-size: 28px; font-weight: 700; }
+  .stat-card .label { font-size: 13px; color: #868e96; }
+  .stat-card.green .value { color: #2b8a3e; }
+  .stat-card.red .value { color: #fa5252; }
+  .stat-card.blue .value { color: #228be6; }
+
+  .issue-form { background: #f8f9fa; border-radius: 8px; padding: 20px; max-width: 500px; }
+
+  @media print { body { background: #fff; padding: 0; } .screen { box-shadow: none; break-inside: avoid; } }
+</style>
+</head>
+<body>
+
+<h1>Project 3: Library Book Tracker</h1>
+<p class="subtitle">A small library tracks books, members, and who has borrowed which book</p>
+
+<!-- Navigation Mockup -->
+<div class="nav-mockup">
+  <div class="nav-item active">Books</div>
+  <div class="nav-item">Members</div>
+  <div class="nav-item">Issue / Return</div>
+  <div class="nav-item">Report</div>
+</div>
+
+<!-- ========== SCREEN 1: BOOKS ========== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">1</div>
+    <h2>Books</h2>
+  </div>
+  <p class="screen-desc">Add and manage the library's book collection</p>
+
+  <div class="layout">
+    <div class="panel">
+      <h3>Add Book Form</h3>
+      <div class="form-group">
+        <label>Book Title *</label>
+        <div class="hint">Full title of the book</div>
+        <input type="text" placeholder="Enter book title">
+      </div>
+      <div class="form-group">
+        <label>Author *</label>
+        <div class="hint">Name of the author</div>
+        <input type="text" placeholder="Enter author name">
+      </div>
+      <div class="form-group">
+        <label>Category *</label>
+        <div class="hint">What type of book is it?</div>
+        <select>
+          <option value="">Select category...</option>
+          <option>Fiction</option>
+          <option>Non-Fiction</option>
+          <option>Science</option>
+          <option>History</option>
+          <option>Biography</option>
+          <option selected>Technology</option>
+          <option>Children</option>
+          <option>Comics</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary">+ Add Book</button>
+        <button class="btn btn-gray">Clear</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Books List</h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Title</th><th>Author</th><th>Category</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Harry Potter</td><td>J.K. Rowling</td><td>Fiction</td>
+            <td><span class="badge badge-red">Issued</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>2</td><td>Sapiens</td><td>Yuval Harari</td><td>Non-Fiction</td>
+            <td><span class="badge badge-green">Available</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>3</td><td>A Brief History of Time</td><td>Stephen Hawking</td><td>Science</td>
+            <td><span class="badge badge-green">Available</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>4</td><td>Wings of Fire</td><td>APJ Abdul Kalam</td><td>Biography</td>
+            <td><span class="badge badge-red">Issued</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>5</td><td>Clean Code</td><td>Robert C. Martin</td><td>Technology</td>
+            <td><span class="badge badge-green">Available</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 2: MEMBERS ========== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">2</div>
+    <h2>Members</h2>
+  </div>
+  <p class="screen-desc">Add and manage library members who can borrow books</p>
+
+  <div class="layout">
+    <div class="panel">
+      <h3>Add Member Form</h3>
+      <div class="form-group">
+        <label>Member Name *</label>
+        <div class="hint">Full name</div>
+        <input type="text" placeholder="Enter member name">
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <div class="hint">10-digit mobile number</div>
+        <input type="tel" placeholder="e.g. 9876543210">
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary">+ Add Member</button>
+        <button class="btn btn-gray">Clear</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Members List</h3>
+      <table>
+        <thead>
+          <tr><th>#</th><th>Member Name</th><th>Phone</th><th>Books Held</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td><td>Sana Khan</td><td>9876543210</td>
+            <td><span class="badge badge-yellow">2 books</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>2</td><td>Vikram Joshi</td><td>9123456789</td>
+            <td><span class="badge badge-blue">0 books</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+          <tr>
+            <td>3</td><td>Fatima Begum</td><td>9988776655</td>
+            <td><span class="badge badge-blue">0 books</span></td>
+            <td class="actions"><button class="btn btn-gray btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 3: ISSUE / RETURN ========== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">3</div>
+    <h2>Issue / Return Books</h2>
+  </div>
+  <p class="screen-desc">Issue a book to a member, or mark a book as returned</p>
+
+  <div class="layout">
+    <!-- Issue Book -->
+    <div class="panel">
+      <div class="issue-form">
+        <h3 style="color:#2b8a3e;">Issue a Book</h3>
+        <div class="form-group">
+          <label>Select Member *</label>
+          <select>
+            <option value="">Choose a member...</option>
+            <option selected>Sana Khan - 9876543210</option>
+            <option>Vikram Joshi - 9123456789</option>
+            <option>Fatima Begum - 9988776655</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Select Book *</label>
+          <div class="hint">Only available books are shown</div>
+          <select>
+            <option value="">Choose a book...</option>
+            <option selected>Sapiens - Yuval Harari</option>
+            <option>A Brief History of Time - Stephen Hawking</option>
+            <option>Clean Code - Robert C. Martin</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Issue Date</label>
+          <input type="date" value="2026-04-03">
+        </div>
+        <button class="btn btn-primary">Issue Book</button>
+      </div>
+    </div>
+
+    <!-- Currently Issued -->
+    <div class="panel">
+      <h3>Currently Issued Books</h3>
+      <table>
+        <thead>
+          <tr><th>Book</th><th>Member</th><th>Issue Date</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Harry Potter</strong><br><span style="color:#868e96; font-size:12px;">J.K. Rowling</span></td>
+            <td>Sana Khan</td>
+            <td>28 Mar 2026</td>
+            <td><button class="btn btn-success btn-sm">Return</button></td>
+          </tr>
+          <tr>
+            <td><strong>Wings of Fire</strong><br><span style="color:#868e96; font-size:12px;">APJ Abdul Kalam</span></td>
+            <td>Sana Khan</td>
+            <td>01 Apr 2026</td>
+            <td><button class="btn btn-success btn-sm">Return</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="divider"></div>
+
+      <h3>Recently Returned</h3>
+      <table>
+        <thead>
+          <tr><th>Book</th><th>Member</th><th>Issued</th><th>Returned</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sapiens</td>
+            <td>Vikram Joshi</td>
+            <td>20 Mar 2026</td>
+            <td>27 Mar 2026</td>
+          </tr>
+          <tr>
+            <td>Clean Code</td>
+            <td>Fatima Begum</td>
+            <td>15 Mar 2026</td>
+            <td>25 Mar 2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========== SCREEN 4: REPORT ========== -->
+<div class="screen">
+  <div class="screen-header">
+    <div class="screen-number">4</div>
+    <h2>Member Report</h2>
+  </div>
+  <p class="screen-desc">Select a member to see their complete borrowing history</p>
+
+  <div style="display:flex; gap:12px; align-items:end; margin-bottom:20px;">
+    <div class="form-group" style="flex:1; max-width:400px; margin-bottom:0;">
+      <label>Select Member</label>
+      <select>
+        <option value="">Choose a member...</option>
+        <option selected>Sana Khan - 9876543210</option>
+        <option>Vikram Joshi - 9123456789</option>
+      </select>
+    </div>
+    <button class="btn btn-primary">View Report</button>
+    <button class="btn btn-gray">Print</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- The actual report -->
+  <div class="report-card" style="max-width: 700px;">
+    <div class="report-title">Library Member Report</div>
+    <div class="report-subtitle">Generated on 03 April 2026</div>
+
+    <div class="report-info" style="background:#f8f9fa; padding:12px; border-radius:6px; margin-bottom:20px;">
+      <div><span>Member Name:</span> <strong>Sana Khan</strong></div>
+      <div><span>Phone:</span> <strong>9876543210</strong></div>
+      <div><span>Member Since:</span> <strong>15 March 2026</strong></div>
+      <div><span>Member #:</span> <strong>1</strong></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card blue">
+        <div class="value">4</div>
+        <div class="label">Total Books Borrowed</div>
+      </div>
+      <div class="stat-card red">
+        <div class="value">2</div>
+        <div class="label">Currently Holding</div>
+      </div>
+      <div class="stat-card green">
+        <div class="value">2</div>
+        <div class="label">Returned</div>
+      </div>
+    </div>
+
+    <!-- Currently Holding -->
+    <h3 style="font-size:14px; color:#c92a2a; margin-bottom:8px; margin-top:16px;">CURRENTLY HOLDING</h3>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Book Title</th><th>Author</th><th>Issue Date</th><th>Days Held</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td><strong>Harry Potter</strong></td><td>J.K. Rowling</td><td>28 Mar 2026</td>
+          <td><span class="badge badge-yellow">6 days</span></td>
+        </tr>
+        <tr>
+          <td>2</td><td><strong>Wings of Fire</strong></td><td>APJ Abdul Kalam</td><td>01 Apr 2026</td>
+          <td><span class="badge badge-green">2 days</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- History -->
+    <h3 style="font-size:14px; color:#2b8a3e; margin-bottom:8px; margin-top:24px;">RETURNED BOOKS</h3>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Book Title</th><th>Author</th><th>Issued</th><th>Returned</th><th>Days</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td><td>Sapiens</td><td>Yuval Harari</td><td>18 Mar 2026</td><td>25 Mar 2026</td>
+          <td><span class="badge badge-blue">7 days</span></td>
+        </tr>
+        <tr>
+          <td>2</td><td>Clean Code</td><td>Robert C. Martin</td><td>15 Mar 2026</td><td>20 Mar 2026</td>
+          <td><span class="badge badge-blue">5 days</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

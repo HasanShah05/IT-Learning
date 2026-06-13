@@ -1,0 +1,12 @@
+.hover{
+    background-color: aquamarine;
+}
+.counter {
+  padding: 20px;
+  border: 1px solid white;
+  margin: 20px;
+  width: 200px;
+}
+.scoller{
+  display: flex;
+}
